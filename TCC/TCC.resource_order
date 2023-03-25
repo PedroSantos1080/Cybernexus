@@ -23,7 +23,7 @@
     {"name":"spr_hitbox","order":8,"path":"sprites/spr_hitbox/spr_hitbox.yy",},
     {"name":"spr_personagem2","order":2,"path":"sprites/spr_personagem2/spr_personagem2.yy",},
     {"name":"obj_controle_personagem2","order":4,"path":"objects/obj_controle_personagem2/obj_controle_personagem2.yy",},
-    {"name":"spr_personagem_atacando_teste","order":7,"path":"sprites/spr_personagem_atacando_teste/spr_personagem_atacando_teste.yy",},
+    {"name":"spr_personagem_atacando_TESTEE","order":7,"path":"sprites/spr_personagem_atacando_TESTEE/spr_personagem_atacando_TESTEE.yy",},
     {"name":"obj_hitbox","order":2,"path":"objects/obj_hitbox/obj_hitbox.yy",},
     {"name":"obj_personagem2","order":1,"path":"objects/obj_personagem2/obj_personagem2.yy",},
     {"name":"spr_vida","order":9,"path":"sprites/spr_vida/spr_vida.yy",},

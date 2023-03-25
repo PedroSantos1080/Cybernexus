@@ -44,7 +44,7 @@
     {"id":{"name":"spr_personagem2","path":"sprites/spr_personagem2/spr_personagem2.yy",},},
     {"id":{"name":"obj_controle_personagem2","path":"objects/obj_controle_personagem2/obj_controle_personagem2.yy",},},
     {"id":{"name":"scr_personagem1","path":"scripts/scr_personagem1/scr_personagem1.yy",},},
-    {"id":{"name":"spr_personagem_atacando_teste","path":"sprites/spr_personagem_atacando_teste/spr_personagem_atacando_teste.yy",},},
+    {"id":{"name":"spr_personagem_atacando_TESTEE","path":"sprites/spr_personagem_atacando_TESTEE/spr_personagem_atacando_TESTEE.yy",},},
     {"id":{"name":"obj_hitbox","path":"objects/obj_hitbox/obj_hitbox.yy",},},
     {"id":{"name":"obj_personagem2","path":"objects/obj_personagem2/obj_personagem2.yy",},},
     {"id":{"name":"spr_vida","path":"sprites/spr_vida/spr_vida.yy",},},
