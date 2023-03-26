@@ -15,3 +15,7 @@ if alarm[0] > 0 {
 }else {
 	image_alpha = 1;
 }
+
+if vida2 <= 0 {
+	instance_destroy();
+}
