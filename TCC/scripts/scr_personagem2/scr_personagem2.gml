@@ -13,10 +13,10 @@ function scr_personagem2_movendo(){
 	y+= (baixo - cima) * velocidade;
 	
 	if (esquerda) {
-		sprite_index = spr_personagem2;
+		//sprite_index = spr_personagem2;
 		direc = 1;
 	}else if (direita) {
-		sprite_index = spr_personagem2;
+		//sprite_index = spr_personagem2;
 		direc = 0;
 	}
 	

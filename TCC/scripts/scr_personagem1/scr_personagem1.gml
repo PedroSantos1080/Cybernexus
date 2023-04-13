@@ -14,10 +14,10 @@ function scr_personagem1_movendo(){
 	
 	
 	if (esquerda) {
-		sprite_index = spr_personagem1;
+		//sprite_index = spr_personagem1;
 		direc = 1;
 	}else if (direita) {
-		sprite_index = spr_personagem1;
+		//sprite_index = spr_personagem1;
 		direc = 0;
 	}
 	
