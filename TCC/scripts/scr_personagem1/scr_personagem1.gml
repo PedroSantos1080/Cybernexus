@@ -13,30 +13,39 @@ function scr_personagem1_movendo(){
 	y+= (baixo - cima) * velocidade;
 	
 	
-	if (esquerda) {
-		//sprite_index = spr_personagem1;
-		direc = 1;
-	}else if (direita) {
-		//sprite_index = spr_personagem1;
+	if (direita) {
+		image_xscale = 1;
+		sprite_index = spr_personagem_red_andando;
 		direc = 0;
+	}else if (esquerda) {
+		image_xscale = -1;
+		sprite_index = spr_personagem_red_andando;
+		direc = 1;
+	}else {
+		if direc == 0 {
+			image_xscale = 1;
+			sprite_index = spr_personagem_red_parado;
+		}else if direc == 1{
+			image_xscale = -1;
+			sprite_index = spr_personagem_red_parado;
+		}
+	
 	}
+	
+	
 	
 	if keyboard_check_pressed(ord("F")) {
 		image_index = 0;
 		estado = scr_personagem_atacando;
-		
-		if direc == 0 {
-			instance_create_layer(x + 70, y - 50, "Instances", obj_hitbox);
-		}else if direc == 1 {
-			instance_create_layer(x - 70, y - 50, "Instances", obj_hitbox2);
-		}
+
 	}
 	
 	
 }
 
 function scr_personagem_atacando() {
-	sprite_index = spr_personagem_atacando1;
+	sprite_index = spr_personagem_red_atack;
+	
 	if scr_fim_da_animacao() {
 		estado = scr_personagem1_movendo;
 	}

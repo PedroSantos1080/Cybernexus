@@ -31,8 +31,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_teste",
-    "path": "sprites/spr_teste/spr_teste.yy",
+    "name": "spr_personagem_blue_andando",
+    "path": "sprites/spr_personagem_blue_andando/spr_personagem_blue_andando.yy",
   },
   "spriteMaskId": null,
   "visible": true,
