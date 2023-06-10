@@ -8,3 +8,5 @@ vida = 3;
 alarm[0] = 0;
 
 estado = scr_personagem1_movendo;
+
+inimigos_atingidos = ds_list_create();

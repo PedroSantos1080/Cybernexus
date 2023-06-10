@@ -4,6 +4,6 @@ velocidade = 4;
 
 direc = 0;
 alpha_hit = 0;
-vida2 = 3;
+vida = 3;
 
 estado = scr_personagem2_movendo;

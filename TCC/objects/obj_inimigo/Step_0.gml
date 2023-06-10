@@ -4,7 +4,7 @@ var Obj, Velocidade ;
 
 Obj := obj_personagem1 ;
 
-Velocidade := 3 ; //Velocidade com que vai seguir.
+Velocidade := 4 ; //Velocidade com que vai seguir.
 
 
 move_towards_point(Obj.x, Obj.y, min(Velocidade, point_distance(x, y, Obj.x, Obj.y))) ;
