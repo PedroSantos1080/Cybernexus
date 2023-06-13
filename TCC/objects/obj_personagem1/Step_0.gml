@@ -18,6 +18,7 @@ if alarm[0] > 0 {
 
 if vida <= 0 {
 	instance_destroy();
+
 }
 
 if obj_cristal_blue.vida <= 0 {

@@ -21,6 +21,10 @@ function scr_personagem1_movendo(){
 		image_xscale = -1;
 		sprite_index = spr_personagem_red_andando;
 		direc = 1;
+	}else if (cima) {
+		sprite_index = spr_personagem_red_andando;
+	}else if (baixo) {
+		sprite_index = spr_personagem_red_andando;
 	}else {
 		if direc == 0 {
 			image_xscale = 1;
@@ -38,14 +42,11 @@ function scr_personagem1_movendo(){
 		ds_list_clear(inimigos_atingidos);
 		image_index = 0;
 		estado = scr_personagem_atacando;
-
 	}
-	
 	
 }
 
 function scr_personagem_atacando() {
-///////////////////////////////////////////////////////////////////////////////////////////////////	
 //ATAQUE EM INIMIGOS
 	var inimigos_na_hitbox = ds_list_create();
 	

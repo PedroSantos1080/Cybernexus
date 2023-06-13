@@ -1,9 +1,9 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
-script_execute(estado)
-
+script_execute(estado);
 
 //Combate
+
 if alarm[0] > 0 {
 	if image_alpha >= 1 {
 		alpha_hit = -0.05;
@@ -18,4 +18,9 @@ if alarm[0] > 0 {
 
 if vida <= 0 {
 	instance_destroy();
+
+}
+
+if obj_cristal_red.vida <= 0 {
+	room_goto(rm_vitoria);
 }

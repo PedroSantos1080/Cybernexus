@@ -12,31 +12,90 @@ function scr_personagem2_movendo(){
 	x+= (direita - esquerda) * velocidade;
 	y+= (baixo - cima) * velocidade;
 	
-	if (esquerda) {
-		//sprite_index = spr_personagem2;
+	if (direita) {
+		image_xscale = 1;
+		sprite_index = spr_personagem_blue_andando;
 		direc = 1;
-	}else if (direita) {
-		//sprite_index = spr_personagem2;
+	}else if (esquerda) {
+		image_xscale = -1;
+		sprite_index = spr_personagem_blue_andando;
 		direc = 0;
+	}else if (cima) {
+		sprite_index = spr_personagem_blue_andando;
+	}else if (baixo) {
+		sprite_index = spr_personagem_blue_andando;
+	}else {
+		if direc == 0 {
+			image_xscale = -1;
+			sprite_index = spr_personagem_blue_parado;
+		}else if direc == 1{
+			image_xscale = 1;
+			sprite_index = spr_personagem_blue_parado;
+		}
+	
 	}
 	
 	if keyboard_check_pressed(ord("L")) {
+		ds_list_clear(inimigos_atingidos_blue);
 		image_index = 0;
-		estado = scr_personagem_atacando2;
+		estado = scr_personagem2_atacando;
 		
-		if direc == 0 {
-			instance_create_layer(x + 70, y - 50, "Instances", obj_hitbox);
-		}else if direc == 1 {
-			instance_create_layer(x - 70, y - 50, "Instances", obj_hitbox2);
-		}
 	}
 	
 	
 }
 
-function scr_personagem_atacando2() {
-	sprite_index = spr_personagem_atacando2;
-	if scr_fim_da_animation() {
+function scr_personagem2_atacando() {
+//ATAQUE EM INIMIGOS
+	var inimigos_na_hitbox = ds_list_create();
+	
+	var inimigos = instance_place_list(x,y, obj_inimigo, inimigos_na_hitbox, false);
+	if (inimigos) > 0 {
+		for (var i = 0; i < inimigos; i++) {
+			var inimigoID = inimigos_na_hitbox[| i];
+			
+			if (ds_list_find_index(inimigos_atingidos_blue, inimigoID)) == -1 {
+				ds_list_add(inimigos_atingidos_blue, inimigoID);
+				
+				with(inimigoID) {
+					obj_inimigo.vida -= 1;
+					var _inst = instance_create_layer(x, y, "Instances", obj_dano);
+					_inst.alvo = other;
+					_inst.dano = 1;
+				}
+			}
+		}
+	}
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//ATAQUE NO CRISTAL
+	var cristal = instance_place_list(x,y, obj_cristal_red, inimigos_na_hitbox, false);
+	if (cristal) > 0 {
+		for (var i = 0; i < cristal; i++) {
+			var inimigoID = inimigos_na_hitbox[| i];
+			
+			if (ds_list_find_index(inimigos_atingidos_blue, inimigoID)) == -1 {
+				ds_list_add(inimigos_atingidos_blue, inimigoID);
+				
+				with(inimigoID) {
+					obj_cristal_red.vida -= 1;
+					var _inst = instance_create_layer(x, y, "Instances", obj_dano);
+					_inst.alvo = other;
+					_inst.dano = 1;
+				}
+			}
+		}
+	}
+	
+	
+	
+	ds_list_destroy(inimigos_na_hitbox);
+	
+	sprite_index = spr_personagem_blue_atack;
+	mask_index = spr_personagem_blue_atack_hb;
+	
+	
+	if scr_fim_da_animacao() {
+		mask_index = spr_personagem_red_andando;
 		estado = scr_personagem2_movendo;
 	}
 }
