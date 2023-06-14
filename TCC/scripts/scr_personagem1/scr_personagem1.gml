@@ -60,7 +60,7 @@ function scr_personagem_atacando() {
 				
 				with(inimigoID) {
 					obj_inimigo.vida -= 1;
-					var _inst = instance_create_layer(x, y, "Instances", obj_dano);
+					var _inst = instance_create_layer(x, y, "Personagem_red", obj_dano);
 					_inst.alvo = other;
 					_inst.dano = 1;
 				}
