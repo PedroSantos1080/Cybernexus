@@ -1,5 +1,3 @@
-// Os recursos de script mudaram para a v2.3.0; veja
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 para obter mais informações
 function scr_personagem2_movendo(){
 	var esquerda, direita, baixo, cima, parado
 
@@ -49,7 +47,7 @@ function scr_personagem2_atacando() {
 //ATAQUE EM INIMIGOS
 	var inimigos_na_hitbox = ds_list_create();
 	
-	var inimigos = instance_place_list(x,y, obj_inimigo, inimigos_na_hitbox, false);
+	var inimigos = instance_place_list(x,y, obj_inimigo2, inimigos_na_hitbox, false);
 	if (inimigos) > 0 {
 		for (var i = 0; i < inimigos; i++) {
 			var inimigoID = inimigos_na_hitbox[| i];
@@ -58,7 +56,7 @@ function scr_personagem2_atacando() {
 				ds_list_add(inimigos_atingidos_blue, inimigoID);
 				
 				with(inimigoID) {
-					obj_inimigo.vida -= 1;
+					obj_inimigo2.vida -= 1;
 					var _inst = instance_create_layer(x, y, "Personagem_blue", obj_dano);
 					_inst.alvo = other;
 					_inst.dano = 1;
@@ -78,7 +76,7 @@ function scr_personagem2_atacando() {
 				
 				with(inimigoID) {
 					obj_cristal_red.vida -= 1;
-					var _inst = instance_create_layer(x, y, "Instances", obj_dano);
+					var _inst = instance_create_layer(x, y, "Cristal_red", obj_dano);
 					_inst.alvo = other;
 					_inst.dano = 1;
 				}
@@ -86,6 +84,25 @@ function scr_personagem2_atacando() {
 		}
 	}
 	
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//ATAQUE NO PERSONAGEM
+	var ataque = instance_place_list(x,y, obj_personagem1, inimigos_na_hitbox, false);
+	if (ataque) > 0 {
+		for (var i = 0; i < ataque; i++) {
+			var inimigoID = inimigos_na_hitbox[| i];
+			
+			if (ds_list_find_index(inimigos_atingidos_blue, inimigoID)) == -1 {
+				ds_list_add(inimigos_atingidos_blue, inimigoID);
+				
+				with(inimigoID) {
+					obj_personagem1.vida -= 1;
+					var _inst = instance_create_layer(x, y, "Personagem_red", obj_dano);
+					_inst.alvo = other;
+					_inst.dano = 1;
+				}
+			}
+		}
+	}
 	
 	
 	ds_list_destroy(inimigos_na_hitbox);

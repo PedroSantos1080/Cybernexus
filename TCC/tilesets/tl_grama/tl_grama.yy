@@ -15,10 +15,7 @@
     "name": "Conjuntos de tiles",
     "path": "folders/Conjuntos de tiles.yy",
   },
-  "spriteId": {
-    "name": "spr_grama",
-    "path": "sprites/spr_grama/spr_grama.yy",
-  },
+  "spriteId": null,
   "spriteNoExport": true,
   "textureGroupId": {
     "name": "Default",

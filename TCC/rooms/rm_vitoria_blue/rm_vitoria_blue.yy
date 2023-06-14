@@ -1,7 +1,7 @@
 {
   "resourceType": "GMRoom",
   "resourceVersion": "1.0",
-  "name": "rm_vitoria",
+  "name": "rm_vitoria_blue",
   "creationCodeFile": "",
   "inheritCode": false,
   "inheritCreationOrder": false,
@@ -10,10 +10,10 @@
   "isDnd": false,
   "layers": [
     {"resourceType":"GMRAssetLayer","resourceVersion":"1.0","name":"Assets_1","assets":[
-        {"resourceType":"GMRSpriteGraphic","resourceVersion":"1.0","name":"graphic_18CED0E4_1","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"rotation":0.0,"scaleX":0.5,"scaleY":12.0,"spriteId":{"name":"spr_parede","path":"sprites/spr_parede/spr_parede.yy",},"x":0.0,"y":0.0,},
-        {"resourceType":"GMRSpriteGraphic","resourceVersion":"1.0","name":"graphic_6560020C_1","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"rotation":0.0,"scaleX":0.5,"scaleY":12.0,"spriteId":{"name":"spr_parede","path":"sprites/spr_parede/spr_parede.yy",},"x":1328.0,"y":0.0,},
-        {"resourceType":"GMRSpriteGraphic","resourceVersion":"1.0","name":"graphic_67AFAD08_1","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"rotation":0.0,"scaleX":20.5,"scaleY":0.5,"spriteId":{"name":"spr_parede","path":"sprites/spr_parede/spr_parede.yy",},"x":32.0,"y":0.0,},
-        {"resourceType":"GMRSpriteGraphic","resourceVersion":"1.0","name":"graphic_D427165_1","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"rotation":0.0,"scaleX":20.5,"scaleY":0.5,"spriteId":{"name":"spr_parede","path":"sprites/spr_parede/spr_parede.yy",},"x":32.0,"y":736.0,},
+        {"resourceType":"GMRSpriteGraphic","resourceVersion":"1.0","name":"graphic_18CED0E4_1_1","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"rotation":0.0,"scaleX":0.5,"scaleY":12.0,"spriteId":{"name":"spr_parede","path":"sprites/spr_parede/spr_parede.yy",},"x":0.0,"y":0.0,},
+        {"resourceType":"GMRSpriteGraphic","resourceVersion":"1.0","name":"graphic_6560020C_1_1","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"rotation":0.0,"scaleX":0.5,"scaleY":12.0,"spriteId":{"name":"spr_parede","path":"sprites/spr_parede/spr_parede.yy",},"x":1328.0,"y":0.0,},
+        {"resourceType":"GMRSpriteGraphic","resourceVersion":"1.0","name":"graphic_67AFAD08_1_1","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"rotation":0.0,"scaleX":20.5,"scaleY":0.5,"spriteId":{"name":"spr_parede","path":"sprites/spr_parede/spr_parede.yy",},"x":32.0,"y":0.0,},
+        {"resourceType":"GMRSpriteGraphic","resourceVersion":"1.0","name":"graphic_D427165_1_1","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"rotation":0.0,"scaleX":20.5,"scaleY":0.5,"spriteId":{"name":"spr_parede","path":"sprites/spr_parede/spr_parede.yy",},"x":32.0,"y":736.0,},
       ],"depth":0,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"tl_Flor","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":48,"SerialiseWidth":85,"TileCompressedData":[
 -351,-2147483648,1,3,-163,-2147483648,2,6,7,-12,-2147483648,1,3,-14,-2147483648,2,6,7,-54,-2147483648,2,6,7,-19,-2147483648,1,7,-7,-2147483648,2,6,7,-117,-2147483648,2,3,4,-62,-2147483648,1,5,-21,-2147483648,2,3,4,-39,-2147483648,1,6,-34,-2147483648,3,3,-2147483648,2,-16,-2147483648,1,6,-42,-2147483648,1,3,-157,-2147483648,1,5,-67,-2147483648,1,6,-31,-2147483648,1,1,-97,-2147483648,1,6,-102,-2147483648,1,6,-47,

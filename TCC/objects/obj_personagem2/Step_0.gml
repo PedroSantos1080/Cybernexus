@@ -17,10 +17,10 @@ if alarm[0] > 0 {
 }
 
 if vida <= 0 {
-	instance_destroy();
-
+	instance_destroy();    
+	with (obj_controle) {alarm[1] = 100}
 }
 
 if obj_cristal_red.vida <= 0 {
-	room_goto(rm_vitoria);
+	room_goto(rm_vitoria_blue);
 }

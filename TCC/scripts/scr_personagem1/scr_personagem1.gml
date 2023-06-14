@@ -1,5 +1,3 @@
-// Os recursos de script mudaram para a v2.3.0; veja
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 para obter mais informações
 function scr_personagem1_movendo(){
 	var esquerda, direita, baixo, cima, parado
 
@@ -79,7 +77,27 @@ function scr_personagem_atacando() {
 				
 				with(inimigoID) {
 					obj_cristal_blue.vida -= 1;
-					var _inst = instance_create_layer(x, y, "Instances", obj_dano);
+					var _inst = instance_create_layer(x, y, "Cristal_blue", obj_dano);
+					_inst.alvo = other;
+					_inst.dano = 1;
+				}
+			}
+		}
+	}
+	
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//ATAQUE NO PERSONAGEM
+	var ataque = instance_place_list(x,y, obj_personagem2, inimigos_na_hitbox, false);
+	if (ataque) > 0 {
+		for (var i = 0; i < ataque; i++) {
+			var inimigoID = inimigos_na_hitbox[| i];
+			
+			if (ds_list_find_index(inimigos_atingidos, inimigoID)) == -1 {
+				ds_list_add(inimigos_atingidos, inimigoID);
+				
+				with(inimigoID) {
+					obj_personagem2.vida -= 1;
+					var _inst = instance_create_layer(x, y, "Personagem_blue", obj_dano);
 					_inst.alvo = other;
 					_inst.dano = 1;
 				}

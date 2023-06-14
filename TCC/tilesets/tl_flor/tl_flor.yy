@@ -15,10 +15,7 @@
     "name": "Conjuntos de tiles",
     "path": "folders/Conjuntos de tiles.yy",
   },
-  "spriteId": {
-    "name": "spr_flor",
-    "path": "sprites/spr_flor/spr_flor.yy",
-  },
+  "spriteId": null,
   "spriteNoExport": true,
   "textureGroupId": {
     "name": "Default",
