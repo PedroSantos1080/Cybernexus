@@ -40,6 +40,7 @@ function scr_personagem1_movendo(){
 		ds_list_clear(inimigos_atingidos);
 		image_index = 0;
 		estado = scr_personagem_atacando;
+		mask_index = spr_personagem_red_atack_hb;
 	}
 	
 }
@@ -57,10 +58,10 @@ function scr_personagem_atacando() {
 				ds_list_add(inimigos_atingidos, inimigoID);
 				
 				with(inimigoID) {
-					obj_inimigo.vida -= 1;
+					obj_inimigo.vida -= obj_personagem1.dano;
 					var _inst = instance_create_layer(x, y, "Personagem_red", obj_dano);
 					_inst.alvo = other;
-					_inst.dano = 1;
+					_inst.dano = obj_personagem1.dano;
 				}
 			}
 		}
@@ -76,10 +77,10 @@ function scr_personagem_atacando() {
 				ds_list_add(inimigos_atingidos, inimigoID);
 				
 				with(inimigoID) {
-					obj_cristal_blue.vida -= 1;
+					obj_cristal_blue.vida -= obj_personagem1.dano;
 					var _inst = instance_create_layer(x, y, "Cristal_blue", obj_dano);
 					_inst.alvo = other;
-					_inst.dano = 1;
+					_inst.dano = obj_personagem1.dano;
 				}
 			}
 		}
@@ -96,10 +97,10 @@ function scr_personagem_atacando() {
 				ds_list_add(inimigos_atingidos, inimigoID);
 				
 				with(inimigoID) {
-					obj_personagem2.vida -= 1;
+					obj_personagem2.vida -= obj_personagem1.dano;
 					var _inst = instance_create_layer(x, y, "Personagem_blue", obj_dano);
 					_inst.alvo = other;
-					_inst.dano = 1;
+					_inst.dano = obj_personagem1.dano;
 				}
 			}
 		}

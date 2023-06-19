@@ -2,6 +2,9 @@
   "resourceType": "GMOperaGXOptions",
   "resourceVersion": "1.1",
   "name": "operagx",
+  "ConfigValues": {
+    "NewConfig1": {"option_operagx_game_name":"TCC","option_operagx_mod_game_name":"TCC",},
+  },
   "option_operagx_display_cursor": true,
   "option_operagx_editUrl": "",
   "option_operagx_game_name": "TCC",

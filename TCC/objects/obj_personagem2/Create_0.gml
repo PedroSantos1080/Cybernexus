@@ -9,4 +9,5 @@ alarm[0] = 0;
 
 estado = scr_personagem2_movendo;
 
+dano = 1;
 inimigos_atingidos_blue = ds_list_create();
