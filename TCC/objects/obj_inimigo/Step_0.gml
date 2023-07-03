@@ -1,11 +1,26 @@
-var Obj, Velocidade ;
-Obj := obj_personagem1;
-Velocidade := 4 ; 
+if (global.pause){ 
+	exit;
+}else {
+	image_speed = 1;
+}
 
 
-move_towards_point(Obj.x, Obj.y, min(Velocidade, point_distance(x, y, Obj.x, Obj.y)));
+if (instance_exists(Obj)) {
+	dir = point_direction(x, y, Obj.x, Obj.y);
+}else if (instance_exists(Obj)){
+	Obj := obj_personagem2;
+	dir = point_direction(x, y, Obj.x, Obj.y);
+}
+
+hspd = lengthdir_x(spd, dir);
+vspd = lengthdir_y(spd, dir);
+
+x += hspd;
+y += vspd;
 
 
 if vida <= 0 {
 	instance_destroy();
 }
+
+

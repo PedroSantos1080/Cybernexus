@@ -1,5 +1,12 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
+if (global.pause){ 
+	exit;
+}else {
+	image_speed = 1;
+}
+
+
 script_execute(estado);
 
 //Combate

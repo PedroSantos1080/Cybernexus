@@ -46,26 +46,27 @@ function scr_personagem1_movendo(){
 }
 
 function scr_personagem_atacando() {
-//ATAQUE EM INIMIGOS
-	var inimigos_na_hitbox = ds_list_create();
-	
-	var inimigos = instance_place_list(x,y, obj_inimigo, inimigos_na_hitbox, false);
-	if (inimigos) > 0 {
-		for (var i = 0; i < inimigos; i++) {
-			var inimigoID = inimigos_na_hitbox[| i];
-			
-			if (ds_list_find_index(inimigos_atingidos, inimigoID)) == -1 {
-				ds_list_add(inimigos_atingidos, inimigoID);
-				
-				with(inimigoID) {
-					obj_inimigo.vida -= obj_personagem1.dano;
-					var _inst = instance_create_layer(x, y, "Personagem_red", obj_dano);
-					_inst.alvo = other;
-					_inst.dano = obj_personagem1.dano;
-				}
-			}
-		}
-	}
+    //ATAQUE EM INIMIGOS
+    var inimigos_na_hitbox = ds_list_create();
+    
+    var inimigos = instance_place_list(x, y, obj_inimigo, inimigos_na_hitbox, false);
+    if (inimigos > 0) {
+        for (var i = 0; i < inimigos; i++) {
+            var inimigoID = inimigos_na_hitbox[| i];
+            
+            if (ds_list_find_index(inimigos_atingidos, inimigoID) == -1) {
+                ds_list_add(inimigos_atingidos, inimigoID);
+                
+                with (inimigoID) {
+                    vida -= other.dano;
+                    var _inst = instance_create_layer(x, y, "Personagem_red", obj_dano);
+                    _inst.alvo = other;
+                    _inst.dano = obj_personagem1.dano;
+                }
+            }
+        }
+    }
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //ATAQUE NO CRISTAL
 	var cristal = instance_place_list(x,y, obj_cristal_blue, inimigos_na_hitbox, false);

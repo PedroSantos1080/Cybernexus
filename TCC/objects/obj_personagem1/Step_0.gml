@@ -1,5 +1,11 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
+if (global.pause){ 
+	exit;
+}else {
+	image_speed = 1;
+}
+
 script_execute(estado);
 
 //Combate
@@ -24,3 +30,4 @@ if vida <= 0 {
 if obj_cristal_blue.vida <= 0 {
 	room_goto(rm_vitoria_red);
 }
+

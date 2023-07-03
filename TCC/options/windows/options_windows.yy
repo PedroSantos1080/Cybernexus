@@ -2,6 +2,9 @@
   "resourceType": "GMWindowsOptions",
   "resourceVersion": "1.1",
   "name": "Windows",
+  "ConfigValues": {
+    "NewConfig1": {"option_windows_borderless":"false","option_windows_allow_fullscreen_switching":"true","option_windows_start_fullscreen":"true","option_windows_resize_window":"false","option_windows_interpolate_pixels":"true","option_windows_vsync":"true","option_windows_texture_page":"2048x2048",},
+  },
   "option_windows_allow_fullscreen_switching": false,
   "option_windows_borderless": false,
   "option_windows_company_info": "YoYo Games Ltd",
