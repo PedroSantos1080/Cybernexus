@@ -47,7 +47,7 @@ function scr_personagem2_atacando() {
 //ATAQUE EM INIMIGOS
 	var inimigos_na_hitbox = ds_list_create();
 	
-	var inimigos = instance_place_list(x,y, obj_inimigo2, inimigos_na_hitbox, false);
+	var inimigos = instance_place_list(x,y, obj_inimigo, inimigos_na_hitbox, false);
 	if (inimigos) > 0 {
 		for (var i = 0; i < inimigos; i++) {
 			var inimigoID = inimigos_na_hitbox[| i];
@@ -56,7 +56,7 @@ function scr_personagem2_atacando() {
 				ds_list_add(inimigos_atingidos_blue, inimigoID);
 				
 				with(inimigoID) {
-					obj_inimigo2.vida -= obj_personagem2.dano;
+					 vida -= other.dano;
 					var _inst = instance_create_layer(x, y, "Personagem_blue", obj_dano);
 					_inst.alvo = other;
 					_inst.dano = obj_personagem2.dano;

@@ -7,10 +7,3 @@ var _empurraoy = lengthdir_y(_empurrao, _dir);
 
 other.x += _empurraox;
 other.y += _empurraoy;
-
-
-if alarm[2] <= 0 {
-	obj_personagem2.vida -=3;
-	
-	alarm[2] = 180;
-}

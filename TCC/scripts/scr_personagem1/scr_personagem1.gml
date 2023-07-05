@@ -58,6 +58,16 @@ function scr_personagem_atacando() {
                 ds_list_add(inimigos_atingidos, inimigoID);
                 
                 with (inimigoID) {
+					
+					var _dir = point_direction(x, y , other.x, other.y);
+					var _empurrao = 4;
+					var _empurraox = lengthdir_x(_empurrao, _dir);
+					var _empurraoy = lengthdir_y(_empurrao, _dir);
+
+					other.x += _empurraox;
+					other.y += _empurraoy;
+					
+					
                     vida -= other.dano;
                     var _inst = instance_create_layer(x, y, "Personagem_red", obj_dano);
                     _inst.alvo = other;

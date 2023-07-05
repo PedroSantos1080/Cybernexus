@@ -5,7 +5,7 @@ var _buffer = 30; //espaço entre os corações
 var _vidas = obj_cristal_blue.vida;
 
 for (var i = 0; i < _vidas; i++;) {
-	draw_sprite_ext(spr_vida, 0, 840 + (_sprl * i) + (_buffer * i), 50, 2, 2, 0, c_white, 1);
+	draw_sprite_ext(spr_vida, 0, 1400 + (_sprl * i) + (_buffer * i), 50, 2, 2, 0, c_white, 1);
 }
 
 if (_vidas = 0) {
