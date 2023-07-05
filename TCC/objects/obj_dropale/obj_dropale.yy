@@ -29,8 +29,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_dropale",
-    "path": "sprites/spr_dropale/spr_dropale.yy",
+    "name": "spr_facadrop",
+    "path": "sprites/spr_facadrop/spr_facadrop.yy",
   },
   "spriteMaskId": null,
   "visible": true,
