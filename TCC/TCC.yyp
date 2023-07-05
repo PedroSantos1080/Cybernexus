@@ -60,7 +60,7 @@
     {"id":{"name":"spr_exit","path":"sprites/spr_exit/spr_exit.yy",},},
     {"id":{"name":"spr_personagem_red_parado","path":"sprites/spr_personagem_red_parado/spr_personagem_red_parado.yy",},},
     {"id":{"name":"spr_personagem_blue_soco","path":"sprites/spr_personagem_blue_soco/spr_personagem_blue_soco.yy",},},
-    {"id":{"name":"spr_facadrop","path":"sprites/spr_facadrop/spr_facadrop.yy",},},
+    {"id":{"name":"spr_dropale","path":"sprites/spr_dropale/spr_dropale.yy",},},
     {"id":{"name":"rm_menu","path":"rooms/rm_menu/rm_menu.yy",},},
     {"id":{"name":"tl_fundo","path":"tilesets/tl_fundo/tl_fundo.yy",},},
     {"id":{"name":"obj_personagem2","path":"objects/obj_personagem2/obj_personagem2.yy",},},
