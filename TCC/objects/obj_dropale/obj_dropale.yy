@@ -29,8 +29,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_facadrop",
-    "path": "sprites/spr_facadrop/spr_facadrop.yy",
+    "name": "spr_facadrop2",
+    "path": "sprites/spr_facadrop2/spr_facadrop2.yy",
   },
   "spriteMaskId": null,
   "visible": true,
