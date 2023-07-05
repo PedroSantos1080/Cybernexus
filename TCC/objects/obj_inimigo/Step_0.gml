@@ -19,6 +19,7 @@ y += vspd;
 
 if vida <= 0 {
 	instance_destroy();
+	dropa_loot();
 }
 
 
