@@ -8,6 +8,7 @@ if keyboard_check(vk_f12) {
 	window_set_fullscreen(0);
 }
 
-if keyboard_check(vk_escape) {
+if keyboard_check_pressed(vk_escape) {
 	global.pause = !global.pause;
 }
+

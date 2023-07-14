@@ -12,3 +12,7 @@ estado = scr_personagem2_movendo;
 inimigos_atingidos_blue = ds_list_create();
 
 dano = 1;
+
+
+_ataque = spr_personagem_blue_atack_soco;
+_colis_ataque = spr_personagem_blue_atack_soco_hb;

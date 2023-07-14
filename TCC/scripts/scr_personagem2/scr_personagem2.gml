@@ -1,43 +1,73 @@
 function scr_personagem2_movendo(){
-	var esquerda, direita, baixo, cima, parado
+	#region Movimentação
+	var _esquerda, _direita, _baixo, _cima, _parado
 
-	esquerda = keyboard_check(vk_left);
-	direita = keyboard_check(vk_right);
-	cima = keyboard_check(vk_up);
-	baixo = keyboard_check(vk_down);
-	parado = keyboard_check(vk_nokey);
+	_esquerda = keyboard_check(vk_left);
+	_direita = keyboard_check(vk_right);
+	_cima = keyboard_check(vk_up);
+	_baixo = keyboard_check(vk_down);
+	_parado = keyboard_check(vk_nokey);
 
-	x+= (direita - esquerda) * velocidade;
-	y+= (baixo - cima) * velocidade;
+    if (_direita) {
+        hveloc = velocidade;
+        sprite_index = spr_blue_correndo_direita;
+        direc = 0;
+    } else if (_esquerda) {
+        hveloc = -velocidade;
+        sprite_index = spr_blue_correndo_esquerda;
+        direc = 1;
+    } else {
+        hveloc = 0;
+	if direc == 0 {
+		sprite_index = spr_blue_parado_direita;
+	} else if direc == 1{			
+		sprite_index = spr_blue_parado_esquerda;
+	}		
+    }
+   //Fazer ele parado para baixo e para cima
+   if (_cima) {
+	   sprite_index = spr_blue_correndo_costas;
+        vveloc = -velocidade;
+		 direc = 2;
+    } else if (_baixo) {
+		sprite_index = spr_blue_correndo_frente;
+        vveloc = velocidade;
+		 direc = 3;
+    } else {
+        vveloc = 0;
+		if direc == 2 {
+		sprite_index = spr_blue_parado_costas;
+	} else if direc == 3{			
+		sprite_index = spr_blue_parado_frente;
+	}		
+    }
+	#endregion
 	
-	if (direita) {
-		image_xscale = 1;
-		sprite_index = spr_personagem_blue_andando;
-		direc = 1;
-	}else if (esquerda) {
-		image_xscale = -1;
-		sprite_index = spr_personagem_blue_andando;
-		direc = 0;
-	}else if (cima) {
-		sprite_index = spr_personagem_blue_andando;
-	}else if (baixo) {
-		sprite_index = spr_personagem_blue_andando;
-	}else {
-		if direc == 0 {
-			image_xscale = -1;
-			sprite_index = spr_personagem_blue_parado;
-		}else if direc == 1{
-			image_xscale = 1;
-			sprite_index = spr_personagem_blue_parado;
+	#region Colisão
+	
+	if place_meeting(x + hveloc, y, obj_parede){
+		while !place_meeting(x + sign(hveloc), y, obj_parede){
+			x += sign(hveloc);
 		}
-	
+		hveloc = 0;
 	}
+	if place_meeting(x, y + vveloc, obj_parede){
+			while !place_meeting(x, y + sign(vveloc), obj_parede){
+			y += sign(vveloc);
+		}
+		vveloc = 0;
+	}
+	
+	#endregion
+
+	x += hveloc;
+	y += vveloc;
 	
 	if keyboard_check_pressed(ord("L")) {
 		ds_list_clear(inimigos_atingidos_blue);
 		image_index = 0;
 		estado = scr_personagem2_atacando;
-		mask_index = spr_personagem_blue_atack_hb;
+		mask_index = _colis_ataque;
 	}
 	
 	
@@ -107,12 +137,17 @@ function scr_personagem2_atacando() {
 	
 	ds_list_destroy(inimigos_na_hitbox);
 	
-	sprite_index = spr_personagem_blue_atack;
-	mask_index = spr_personagem_blue_atack_hb;
+	
+	
+	sprite_index = _ataque;
+	mask_index = _colis_ataque;
 	
 	
 	if scr_fim_da_animacao() {
-		mask_index = spr_personagem_red_andando;
+		mask_index = spr_personagem_blue_andando;
 		estado = scr_personagem2_movendo;
 	}
+	
+
+
 }

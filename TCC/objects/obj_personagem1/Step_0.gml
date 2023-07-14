@@ -5,7 +5,8 @@ if (global.pause){
 }else {
 	image_speed = 1;
 }
-
+image_xscale = 0.3;
+image_yscale = 0.3;
 script_execute(estado);
 
 //Combate
@@ -21,6 +22,8 @@ if alarm[0] > 0 {
 }else {
 	image_alpha = 1;
 }
+
+
 
 if vida <= 0 {
 	instance_destroy();    

@@ -6,7 +6,8 @@ if (global.pause){
 	image_speed = 1;
 }
 
-
+image_xscale = 0.3;
+image_yscale = 0.3;
 script_execute(estado);
 
 //Combate

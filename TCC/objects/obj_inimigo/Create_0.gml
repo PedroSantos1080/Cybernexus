@@ -5,7 +5,7 @@ _obj = [obj_personagem1, obj_personagem2];
 sorteio = irandom_range(0,1);
 
 
-vida = 3;
+vida = 1;
 
 
 hspd = -1;

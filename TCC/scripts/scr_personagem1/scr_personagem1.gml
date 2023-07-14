@@ -1,38 +1,69 @@
-function scr_personagem1_movendo(){
-	var esquerda, direita, baixo, cima, parado
+function scr_personagem1_movendo() {
+	#region Movimentação
+    var _esquerda, _direita, _baixo, _cima, _parado;
 
-	esquerda = keyboard_check(ord("A"));
-	direita = keyboard_check(ord("D"));
-	cima = keyboard_check(ord("W"));
-	baixo = keyboard_check(ord("S"));
-	parado = keyboard_check(vk_nokey);
-
-	x+= (direita - esquerda) * velocidade;
-	y+= (baixo - cima) * velocidade;
+    _esquerda = keyboard_check(ord("A"));
+    _direita = keyboard_check(ord("D"));
+    _cima = keyboard_check(ord("W"));
+    _baixo = keyboard_check(ord("S"));
+    _parado = keyboard_check(vk_nokey);
+    
+    if (_direita) {
+        hveloc = velocidade;
+        sprite_index = spr_red_correndo_direita;
+        direc = 0;
+    } else if (_esquerda) {
+        hveloc = -velocidade;
+        sprite_index = spr_red_correndo_esquerda;
+        direc = 1;
+    } else {
+        hveloc = 0;
+	if direc == 0 {
+		sprite_index = spr_red_parado_direita;
+	} else if direc == 1{			
+		sprite_index = spr_red_parado_esquerda;
+	}		
+    }
+   //Fazer ele parado para baixo e para cima
+   if (_cima) {
+	   sprite_index = spr_red_correndo_costas;
+        vveloc = -velocidade;
+		 direc = 2;
+    } else if (_baixo) {
+		sprite_index = spr_red_correndo_frente;
+        vveloc = velocidade;
+		 direc = 3;
+    } else {
+        vveloc = 0;
+		if direc == 2 {
+		sprite_index = spr_red_parado_costas;
+	} else if direc == 3{			
+		sprite_index = spr_red_parado_frente;
+	}		
+    }
+	#endregion
 	
+	#region Colisão
 	
-	if (direita) {
-		image_xscale = 1;
-		sprite_index = spr_personagem_red_andando;
-		direc = 0;
-	}else if (esquerda) {
-		image_xscale = -1;
-		sprite_index = spr_personagem_red_andando;
-		direc = 1;
-	}else if (cima) {
-		sprite_index = spr_personagem_red_andando;
-	}else if (baixo) {
-		sprite_index = spr_personagem_red_andando;
-	}else {
-		if direc == 0 {
-			image_xscale = 1;
-			sprite_index = spr_personagem_red_parado;
-		}else if direc == 1{
-			image_xscale = -1;
-			sprite_index = spr_personagem_red_parado;
+	if place_meeting(x + hveloc, y, obj_parede){
+		while !place_meeting(x + sign(hveloc), y, obj_parede){
+			x += sign(hveloc);
 		}
-	
+		hveloc = 0;
 	}
+	if place_meeting(x, y + vveloc, obj_parede){
+			while !place_meeting(x, y + sign(vveloc), obj_parede){
+			y += sign(vveloc);
+		}
+		vveloc = 0;
+	}
+	
+	#endregion
+	
+	x += hveloc;
+	y += vveloc;
+	
+	#region Ataque
 	
 	
 	
@@ -42,7 +73,7 @@ function scr_personagem1_movendo(){
 		estado = scr_personagem_atacando;
 		mask_index = spr_personagem_red_atack_hb;
 	}
-	
+	#endregion		
 }
 
 function scr_personagem_atacando() {

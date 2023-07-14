@@ -48,3 +48,4 @@ if (global.pause) {
 	draw_set_font(f_dano);
 	draw_text_ext_color(_largura/2, _altura/2, "JOGO PAUSADO", 80, 900, _c, _c, _c, _c, 1);
 }
+

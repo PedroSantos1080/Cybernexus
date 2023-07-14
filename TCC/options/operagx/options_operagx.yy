@@ -10,7 +10,7 @@
   "option_operagx_game_name": "Cybernexus-TCC-teste",
   "option_operagx_guid": "ab9135c5-d5bd-4ec9-a750-cc6219fa3407",
   "option_operagx_internalShareUrl": "",
-  "option_operagx_interpolate_pixels": true,
+  "option_operagx_interpolate_pixels": false,
   "option_operagx_mod_editUrl": "",
   "option_operagx_mod_game_name": "TCC",
   "option_operagx_mod_guid": "",
