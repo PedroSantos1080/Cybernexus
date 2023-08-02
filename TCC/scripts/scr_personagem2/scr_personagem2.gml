@@ -24,7 +24,7 @@ function scr_personagem2_movendo(){
 		sprite_index = spr_blue_parado_esquerda;
 	}		
     }
-   //Fazer ele parado para baixo e para cima
+
    if (_cima) {
 	   sprite_index = spr_blue_correndo_costas;
         vveloc = -velocidade;
@@ -62,6 +62,12 @@ function scr_personagem2_movendo(){
 
 	x += hveloc;
 	y += vveloc;
+	
+	if (vida < vida_anterior && !tomou_dano) {
+		estado = scr_blue_dano;
+		vida_anterior = vida;
+		tomou_dano = true;
+	}
 	
 	if keyboard_check_pressed(ord("L")) {
 		ds_list_clear(inimigos_atingidos_blue);
@@ -124,7 +130,7 @@ function scr_personagem2_atacando() {
 			if (ds_list_find_index(inimigos_atingidos_blue, inimigoID)) == -1 {
 				ds_list_add(inimigos_atingidos_blue, inimigoID);
 				
-				with(inimigoID) {
+			with(inimigoID) {
 					obj_personagem1.vida -= obj_personagem2.dano;
 					var _inst = instance_create_layer(x, y, "Personagem_red", obj_dano);
 					_inst.alvo = other;
@@ -137,17 +143,80 @@ function scr_personagem2_atacando() {
 	
 	ds_list_destroy(inimigos_na_hitbox);
 	
+	if (direc == 0) {
+		sprite_index = spr_blue_atack_soco_direita;
+		mask_index = spr_blue_atack_soco_direita_hb;
+	}else if (direc == 1) {
+		sprite_index = spr_blue_atack_soco_esquerda;
+		mask_index = spr_blue_atack_soco_esquerda_hb;
+	}else if (direc == 3) {
+		sprite_index = spr_blue_atack_soco_frente;
+		mask_index = spr_blue_atack_soco_frente_hb;
+	}else {
+		sprite_index = spr_blue_atack_soco_costas;
+		mask_index = spr_blue_atack_soco_costas_hb;
+	}
 	
 	
-	sprite_index = _ataque;
-	mask_index = _colis_ataque;
+	
 	
 	
 	if scr_fim_da_animacao() {
-		mask_index = spr_personagem_blue_andando;
+		mask_index = spr_blue_correndo_esquerda;
 		estado = scr_personagem2_movendo;
 	}
 	
 
 
+}
+
+
+function scr_blue_morrendo() {
+	if (direc == 0) {
+		sprite_index = spr_blue_morrendo_direita;
+		direc = 10;
+	}else {
+		if scr_fim_da_animacao() {instance_destroy(); estado = scr_personagem2_movendo;}	
+	}
+	
+	if (direc == 1) {
+		sprite_index = spr_blue_morrendo_esquerda;
+		direc = 11;
+	}else {
+		if scr_fim_da_animacao() {instance_destroy(); estado = scr_personagem2_movendo;}
+	}
+	
+	if (direc == 2) {
+		sprite_index = spr_blue_morrendo_costas;
+		direc = 12;
+	}else {
+		if scr_fim_da_animacao() {instance_destroy(); estado = scr_personagem2_movendo;}
+	}
+	
+	if (direc == 3){
+		sprite_index = spr_blue_morrendo_frente;
+		direc = 13;
+	}else {
+		if scr_fim_da_animacao() {instance_destroy(); estado = scr_personagem2_movendo;}
+	}
+
+	with (obj_controle) {alarm[1] = 100}
+}
+
+
+function scr_blue_dano() {
+	tomou_dano = false;
+	if (direc == 0) {
+		sprite_index = spr_blue_dano_direita;
+	}else if (direc == 1) {
+		sprite_index = spr_blue_dano_esquerda;
+	}else if (direc == 3) {
+		sprite_index = spr_blue_dano_frente;
+	}else {
+		sprite_index = spr_blue_dano_costas;
+	}
+
+	if scr_fim_da_animacao() {
+		estado = scr_personagem2_movendo;
+	}
 }

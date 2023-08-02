@@ -31,7 +31,7 @@
   "origin": 9,
   "parent": {
     "name": "Blue Atacando",
-    "path": "folders/Sprites/Blue Atacando.yy",
+    "path": "folders/Sprites/Blue/Blue Atacando.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

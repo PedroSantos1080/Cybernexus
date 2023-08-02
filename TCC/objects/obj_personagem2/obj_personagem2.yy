@@ -37,8 +37,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_blue_parado_esquerda",
-    "path": "sprites/spr_blue_parado_esquerda/spr_blue_parado_esquerda.yy",
+    "name": "spr_blue_surgindo",
+    "path": "sprites/spr_blue_surgindo/spr_blue_surgindo.yy",
   },
   "spriteMaskId": null,
   "visible": true,

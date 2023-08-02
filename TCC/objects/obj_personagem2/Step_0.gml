@@ -1,4 +1,4 @@
-/// @description Inserir descrição aqui
+    /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
 if (global.pause){ 
 	exit;
@@ -8,25 +8,17 @@ if (global.pause){
 
 image_xscale = 0.3;
 image_yscale = 0.3;
-script_execute(estado);
 
-//Combate
-
-if alarm[0] > 0 {
-	if image_alpha >= 1 {
-		alpha_hit = -0.05;
-	}else if image_alpha <= 0 {
-		alpha_hit = 0.05;
-	}
-	
-	image_alpha += alpha_hit;
-}else {
-	image_alpha = 1;
+if scr_fim_da_animacao() && !surgimento{
+	direc = 1;
+	surgimento = true;
 }
 
+script_execute(estado);
+
+
 if vida <= 0 {
-	instance_destroy();    
-	with (obj_controle) {alarm[1] = 100}
+	estado = scr_blue_morrendo;
 }
 
 if obj_cristal_red.vida <= 0 {
