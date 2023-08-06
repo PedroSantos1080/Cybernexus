@@ -2,10 +2,11 @@ function scr_personagem2_movendo(){
 	#region Movimentação
 	var _esquerda, _direita, _baixo, _cima, _parado
 
-	_esquerda = keyboard_check(vk_left);
-	_direita = keyboard_check(vk_right);
-	_cima = keyboard_check(vk_up);
-	_baixo = keyboard_check(vk_down);
+	gamepad_set_axis_deadzone(5, 0.25);
+	_esquerda = keyboard_check(vk_left) or gamepad_axis_value(5, gp_axislh) < -0.25;
+	_direita = keyboard_check(vk_right) or gamepad_axis_value(5, gp_axislh) > 0.25;
+	_cima = keyboard_check(vk_up) or gamepad_axis_value(5, gp_axislv) < -0.25;
+	_baixo = keyboard_check(vk_down) or gamepad_axis_value(5, gp_axislv) > 0.25
 	_parado = keyboard_check(vk_nokey);
 
     if (_direita) {
@@ -69,7 +70,15 @@ function scr_personagem2_movendo(){
 		tomou_dano = true;
 	}
 	
-	if keyboard_check_pressed(ord("L")) {
+	
+	if (keyboard_check_pressed(ord("K")) > 0 && global.arco_blue == true) {
+		global.arco_blue = false;
+		alarm[4] = 50;// Distancia da flecha.
+		alarm[3] = 120;//Tempo de recarga.
+		instance_create_layer(x + 50, y - 75, "Instances", obj_flecha_blue);
+	}
+	
+	if keyboard_check_pressed(ord("L")) or gamepad_button_check(5, gp_face3) {
 		ds_list_clear(inimigos_atingidos_blue);
 		image_index = 0;
 		estado = scr_personagem2_atacando;

@@ -1,4 +1,5 @@
 if (global.pause){ 
+	image_speed = 0;
 	exit;
 }else {
 	image_speed = 1;
@@ -19,7 +20,8 @@ y += vspd;
 
 if vida <= 0 {
 	instance_destroy();
-	dropa_loot();
+	dropa_espada();
+	dropa_arco();
 }
 
 

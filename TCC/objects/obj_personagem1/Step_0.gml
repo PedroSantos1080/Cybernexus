@@ -23,12 +23,11 @@ if keyboard_check_pressed(ord("R")){
 	vida -= 1;
 }
 
+
 if vida <= 0 {
 	estado = scr_red_morrendo;
 }
 
 
-if obj_cristal_blue.vida <= 0 {
-	room_goto(rm_vitoria_red);
-}
+
 

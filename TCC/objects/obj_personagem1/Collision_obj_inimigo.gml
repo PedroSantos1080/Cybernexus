@@ -7,6 +7,3 @@ var _empurraoy = lengthdir_y(_empurrao, _dir);
 
 other.x += _empurraox;
 other.y += _empurraoy;
-
-
-

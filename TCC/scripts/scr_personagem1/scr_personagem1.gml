@@ -6,10 +6,11 @@ function scr_personagem1_movendo() {
 
 
 
-    _esquerda = keyboard_check(ord("A"));
-    _direita = keyboard_check(ord("D"));
-    _cima = keyboard_check(ord("W"));
-    _baixo = keyboard_check(ord("S"));
+	gamepad_set_axis_deadzone(4, 0.25);
+    _esquerda = keyboard_check(ord("A")) or gamepad_axis_value(4, gp_axislh) < -0.25;
+    _direita = keyboard_check(ord("D")) or gamepad_axis_value(4, gp_axislh) > 0.25;
+    _cima = keyboard_check(ord("W")) or gamepad_axis_value(4, gp_axislv) < -0.25;
+    _baixo = keyboard_check(ord("S")) or gamepad_axis_value(4, gp_axislv) > 0.25;
     _parado = keyboard_check(vk_nokey);
 	
 	
@@ -80,9 +81,14 @@ function scr_personagem1_movendo() {
 	}
 	
 
+	if (keyboard_check_pressed(ord("G")) > 0 && global.arco_red == true) {
+		global.arco_red = false;
+		alarm[4] = 50;// Distancia da flecha.
+		alarm[3] = 120;//Tempo de recarga.
+		instance_create_layer(x + 50, y - 75, "Instances", obj_flecha_red);
+	}
 	
-	
-	if keyboard_check_pressed(ord("F")) {
+	if keyboard_check_pressed(ord("F")) or gamepad_button_check(4, gp_face3){
 		ds_list_clear(inimigos_atingidos);
 		image_index = 0;
 		estado = scr_personagem_atacando;
@@ -154,6 +160,8 @@ function scr_personagem_atacando() {
 				ds_list_add(inimigos_atingidos, inimigoID);
 				
 				with(inimigoID) {
+					
+					
 					obj_personagem2.vida -= obj_personagem1.dano;
 					var _inst = instance_create_layer(x, y, "Personagem_blue", obj_dano);
 					_inst.alvo = other;
