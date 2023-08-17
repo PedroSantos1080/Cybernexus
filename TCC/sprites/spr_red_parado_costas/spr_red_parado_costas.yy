@@ -13,15 +13,15 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"80e84652-280b-4fd4-840d-c45b09db70da",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"8d0e5d02-4de6-467a-9738-dc675a09ac94",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"3dbfe724-8023-478a-b2b4-f1d1ed799691",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"73067052-a2fd-4337-8fbb-5361c12aeea1",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 512,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"c729c729-6d43-4f26-b196-914d3163b252","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"398071f2-9abc-4667-afc9-d244d7b5ef5d","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 9,
@@ -55,8 +55,8 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"80e84652-280b-4fd4-840d-c45b09db70da","path":"sprites/spr_red_parado_costas/spr_red_parado_costas.yy",},},},"Disabled":false,"id":"dc29b4d0-1cee-4c8f-a385-7335bdc5256e","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"8d0e5d02-4de6-467a-9738-dc675a09ac94","path":"sprites/spr_red_parado_costas/spr_red_parado_costas.yy",},},},"Disabled":false,"id":"705896a3-3754-4377-ac60-f375efc7cb78","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"3dbfe724-8023-478a-b2b4-f1d1ed799691","path":"sprites/spr_red_parado_costas/spr_red_parado_costas.yy",},},},"Disabled":false,"id":"33e72020-a29a-4fdc-99a9-6dd3e52ae225","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"73067052-a2fd-4337-8fbb-5361c12aeea1","path":"sprites/spr_red_parado_costas/spr_red_parado_costas.yy",},},},"Disabled":false,"id":"5a5cc381-e123-4357-ac58-fc4026d02c2a","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

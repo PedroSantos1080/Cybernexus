@@ -22,6 +22,6 @@ if (x < 0 || x > room_width || y < 0 || y > room_height) {
 
 //Verifca se o alarm do perosnagem Red chegou a 0 quando a flecha foi atirada.
 
-if (obj_personagem1.alarm[4] == 0 ) {
+if (obj_red.alarm[4] == 0 ) {
 	instance_destroy();
 }

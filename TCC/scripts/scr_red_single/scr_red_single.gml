@@ -117,7 +117,7 @@ function scr_red_single_atacando() {
                     vida -= other.dano;
                     var _inst = instance_create_layer(x, y, "Personagem_red", obj_dano);
                     _inst.alvo = other;
-                    _inst.dano = obj_personagem1.dano;
+                    _inst.dano = obj_red.dano;
                 }
             }
         }

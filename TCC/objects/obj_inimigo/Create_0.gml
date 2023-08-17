@@ -1,7 +1,7 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
 randomize();
-_obj = [obj_personagem1, obj_personagem2];
+_obj = [obj_red, obj_blue];
 sorteio = irandom_range(0,1);
 
 
@@ -20,20 +20,45 @@ chance = 100;
 valor = 1;
 //variáveis do meu Drop
 
- dropa_espada = function(_chance = 50, _valor = 1){
+//Alterar _chance para ser mais dificil do item ser dropado
 
- _valor = random(100);
+drop_espada = function(_chance = 50, _valor = 1){
 
-if (_chance >= _valor){
-	instance_create_layer(x, y, "Instances", obj_dropale);
+	 _valor = random(100);
+
+	if (_chance >= _valor){
+		instance_create_layer(x, y, "Instances", obj_dropale);
+	}
 }
-	 }
 	 
 	 
-dropa_arco = function(_chance = 20, _valor = 1){
+drop_arco = function(_chance = 20, _valor = 1){
+	
 	_valor = random(100);
 		
-		if (_chance >= _valor){
-			instance_create_layer(x, y, "Instances", obj_arco);
-		}
-	 }	 
+	if (_chance >= _valor){
+		instance_create_layer(x, y, "Instances", obj_arco);
+	}
+}	 
+	
+	
+//Drop das melhorias - Para ativar aqui, desative o spawn das melhorias no obj_controle
+
+
+
+//drop_melhoria_dano = function(_chance = 20, _valor = 1){
+	
+//	_valor = random(100);
+		
+//	if (_chance >= _valor){
+//		instance_create_layer(x, y, "Instances", obj_melhoria_dano);
+//	}
+//}	 
+//drop_vida = function(_chance = 20, _valor = 1){
+	
+//	_valor = random(100);
+		
+//	if (_chance >= _valor){
+//		instance_create_layer(x, y, "Instances", obj_vida);
+//	}
+//}	 

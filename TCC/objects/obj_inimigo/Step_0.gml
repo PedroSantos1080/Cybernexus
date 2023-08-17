@@ -20,8 +20,10 @@ y += vspd;
 
 if vida <= 0 {
 	instance_destroy();
-	dropa_espada();
-	dropa_arco();
+	drop_espada();
+	drop_arco();
+	//drop_melhoria_dano();
+	//drop_vida();
 }
 
 

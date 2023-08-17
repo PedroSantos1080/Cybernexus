@@ -11,6 +11,8 @@ if (_vidas = 0) {
 }
 
 
+
+
 //draw_set_font(f_dano); // Define a fonte a ser usada para o texto (substitua 'font' pelo nome da fonte que deseja usar)
 //draw_set_color(c_black); // Define a cor do texto (c_white é branco, mas você pode escolher outras cores)
 //draw_text(x, y, "FPS: " + string(fps)); // Exibe o texto "FPS: " seguido do valor do FPS atual
