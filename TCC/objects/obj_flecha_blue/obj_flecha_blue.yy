@@ -37,8 +37,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_flecha",
-    "path": "sprites/spr_flecha/spr_flecha.yy",
+    "name": "spr_flecha_blue_direita",
+    "path": "sprites/spr_flecha_blue_direita/spr_flecha_blue_direita.yy",
   },
   "spriteMaskId": null,
   "visible": true,

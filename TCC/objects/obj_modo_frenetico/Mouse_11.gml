@@ -1,22 +1,4 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
-y = 540;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+y = 768;
 

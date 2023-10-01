@@ -32,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_select_red",
-    "path": "sprites/spr_select_red/spr_select_red.yy",
+    "name": "spr_jogar_red",
+    "path": "sprites/spr_jogar_red/spr_jogar_red.yy",
   },
   "spriteMaskId": null,
   "visible": true,

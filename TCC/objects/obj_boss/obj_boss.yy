@@ -34,8 +34,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_boss",
-    "path": "sprites/spr_boss/spr_boss.yy",
+    "name": "spr_boss_parado",
+    "path": "sprites/spr_boss_parado/spr_boss_parado.yy",
   },
   "spriteMaskId": null,
   "visible": true,

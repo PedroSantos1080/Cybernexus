@@ -1,1 +1,1 @@
-image_index = 1;
+y = 520;

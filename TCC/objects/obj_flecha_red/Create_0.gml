@@ -2,15 +2,21 @@
 // You can write your code in this editor
 // Código do objeto 'obj_flecha'
 /// Create Event
+
+image_xscale = 0.4;
+image_yscale = 0.4;
+
+
 speed = 20; // Define a velocidade da flecha (ajuste conforme necessário)
 
 // Defina a direção da flecha com base na direção do personagem
 // Supondo que obj_personagem1 possui uma variável 'direc' que indica a direção atual (0, 1, 2, 3)
 if (obj_red.direc == 1) {
-    image_xscale = -1; // Não inverte a imagem horizontalmente
+	sprite_index = spr_flecha_red_esquerda;
+    //image_xscale = -1; // Não inverte a imagem horizontalmente
     direction = 180; // Define a direção da flecha para 180 graus
 } else if (obj_red.direc == 0) {
-    image_xscale = 1; // Inverte a imagem horizontalmente
+    //image_xscale = 1; // Inverte a imagem horizontalmente
     direction = 0; // Define a direção da flecha para 0 grau
 } else if (obj_red.direc == 2) {
     image_angle = 90;

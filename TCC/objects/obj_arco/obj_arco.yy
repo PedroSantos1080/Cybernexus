@@ -31,8 +31,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_arco",
-    "path": "sprites/spr_arco/spr_arco.yy",
+    "name": "spr_arco_neutro",
+    "path": "sprites/spr_arco_neutro/spr_arco_neutro.yy",
   },
   "spriteMaskId": null,
   "visible": true,

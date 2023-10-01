@@ -2,6 +2,9 @@
 // Você pode escrever seu código neste editor
 
 
+
+
+
 if keyboard_check(vk_f11) {
 	window_set_fullscreen(1);
 }
@@ -20,6 +23,8 @@ if (gamepad_button_check(4, gp_select) or gamepad_button_check(5, gp_select) ) {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 //TIMER
+
+
 
 //Executa o timer
 contador.run();

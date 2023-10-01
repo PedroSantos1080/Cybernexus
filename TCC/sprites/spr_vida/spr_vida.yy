@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "Cenário",
-    "path": "folders/Sprites/Cenário.yy",
+    "name": "PowerUps",
+    "path": "folders/Sprites/PowerUps.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

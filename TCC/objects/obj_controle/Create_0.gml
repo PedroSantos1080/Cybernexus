@@ -1,10 +1,19 @@
 /// @description 
 // Você pode escrever seu código neste editor
 randomize();
+
+
+
+// Use game_set_speed para limitar o FPS
+game_set_speed(60, gamespeed_fps);
+
+
 alarm[3] = 150;
 alarm[2] = 1000;
+alarm[5] = 600;
 
 global.pause = false;
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////

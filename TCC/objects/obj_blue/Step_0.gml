@@ -7,6 +7,7 @@ if (global.pause){
 	image_speed = 1;
 }
 
+depth = -y;
 image_xscale = 0.3;
 image_yscale = 0.3;
 
@@ -17,15 +18,8 @@ if scr_fim_da_animacao() && !surgimento{
 
 script_execute(estado);
 
-
 if (keyboard_check_pressed(ord("T"))) {
 	obj_cristal_blue.vida -= 1;
-}
-
-
-
-if vida <= 0 {
-	estado = scr_blue_morrendo;
 }
 
 

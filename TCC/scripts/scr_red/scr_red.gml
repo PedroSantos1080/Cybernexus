@@ -4,9 +4,9 @@ function scr_red_movendo() {
 
 	#region Movimentação
 	
-    var _esquerda, _direita, _baixo, _cima, _parado
+    var _esquerda, _direita, _baixo, _cima, _parado, _ataque_espada, _ataque_arco
 
-
+	global.redbateu = false;
 
 	gamepad_set_axis_deadzone(4, 0.25);
     _esquerda = keyboard_check(ord("A")) or gamepad_axis_value(4, gp_axislh) < -0.25;
@@ -14,41 +14,52 @@ function scr_red_movendo() {
     _cima = keyboard_check(ord("W")) or gamepad_axis_value(4, gp_axislv) < -0.25;
     _baixo = keyboard_check(ord("S")) or gamepad_axis_value(4, gp_axislv) > 0.25;
     _parado = keyboard_check(vk_nokey);
-	
+	_ataque_espada = keyboard_check(ord("F"))  or gamepad_button_check(4, gp_face3);
+	_ataque_arco = keyboard_check(ord("G"))  or gamepad_button_check(4, gp_face4);
 	
 
     
     if (_direita) {
         hveloc = velocidade;
-        sprite_index = spr_red_correndo_direita;
+	   if (global.arco_red){sprite_index = spr_red_correndo_arco_direita;}else{sprite_index = spr_red_correndo_direita;}
+        //Verifica se o personagem está com o arco, caso esteja, muda de sprite
         direc = 0;						
     } else if (_esquerda) {
+	   if (global.arco_red){sprite_index = spr_red_correndo_arco_esquerda;}else{sprite_index = spr_red_correndo_esquerda;}
+	   //Verifica se o personagem está com o arco, caso esteja, muda de sprite
         hveloc = -velocidade;
-        sprite_index = spr_red_correndo_esquerda;
+        
         direc = 1;												
     } else {
         hveloc = 0;
 	if direc == 0 {
-		sprite_index = spr_red_parado_direita;
-	} else if direc == 1{			
-		sprite_index = spr_red_parado_esquerda;
+	   if (global.arco_red){sprite_index = spr_red_arco_direita;}else {sprite_index = spr_red_parado_direita;}		
+	   //Verifica se o personagem está com o arco, caso esteja, muda de sprite
+	} else if direc == 1{
+		if (global.arco_red){sprite_index = spr_red_arco_esquerda;}else {sprite_index = spr_red_parado_esquerda;}		
+		//Verifica se o personagem está com o arco, caso esteja, muda de sprite
 	}		
     }
 
    if (_cima) {
-	   sprite_index = spr_red_correndo_costas;
+	   if (global.arco_red){sprite_index = spr_red_correndo_arco_costas;}else {sprite_index = spr_red_correndo_costas;}
+	   //Verifica se o personagem está com o arco, caso esteja, muda de sprite
         vveloc = -velocidade;
 		 direc = 2;
     } else if (_baixo) {
-		sprite_index = spr_red_correndo_frente;
+	   if (global.arco_red){sprite_index = spr_red_correndo_arco_frente;}else{sprite_index = spr_red_correndo_frente;}
+	   //Verifica se o personagem está com o arco, caso esteja, muda de sprite
         vveloc = velocidade;
 		 direc = 3;
     } else {
         vveloc = 0;
 		if direc == 2 {
-		sprite_index = spr_red_parado_costas;
+			if (global.arco_red){sprite_index = spr_red_arco_costas;}else {sprite_index = spr_red_parado_costas;}
+			//Verifica se o personagem está com o arco, caso esteja, muda de sprite
+		
 	} else if direc == 3{			
-		sprite_index = spr_red_parado_frente;
+		if (global.arco_red){sprite_index = spr_red_arco_frente;}else {sprite_index = spr_red_parado_frente;}		
+		//Verifica se o personagem está com o arco, caso esteja, muda de sprite
 	}		
     }
 	
@@ -82,18 +93,67 @@ function scr_red_movendo() {
 		tomou_dano = true;
 	}
 	
-//ARCO
-	if (keyboard_check_pressed(ord("G")) > 0 && global.arco_red == true) {
-		global.arco_red = false;
-		alarm[4] = 50;// Distancia da flecha.
-		alarm[3] = 120;//Tempo de recarga.
-		instance_create_layer(x + 50, y - 75, "Instances", obj_flecha_red);
-		audio_play_sound(snd_tiro, 1, false);
+//POWERUP DE GELO
+if (tomou_dano = true) && (global.bluebateu = true) && (global.pwup_gelo_pause_blue = true) {
+	
+	global.pwup_gelo_pause_blue = false;
+	alarm[10] = 1;
+	
+	
+	if(estado = scr_red_congelado) && (vida <= 0){
+		estado = scr_red_morrendo;
+	}
+		
+}
+	
+//POWERUP DE FOGO
+	if (keyboard_check_pressed(ord("F")) > 0 && global.pwup_fogo_pegar_red == true) {
+		global.pwup_fogo_pegar_red = false;
+		ds_list_clear(inimigos_atingidos);
+		image_index = 0;
+		estado = scr_red_atacando;
+		audio_play_sound(snd_soco, 1, false);
+		if (direc = 0) {
+			instance_create_layer(x + 150, y - 75, "Lava", obj_fogo_habred);
+		}else if (direc = 1) {
+			instance_create_layer(x - 150, y - 75, "Lava", obj_fogo_habred);
+		}else if (direc = 2) {
+			instance_create_layer(x - 1, y - 200, "Lava", obj_fogo_habred);
+		}else if (direc = 3) {
+			instance_create_layer(x - 1, y - 5, "Lava", obj_fogo_habred);
+		}
+	}
+	
+//POWERUP ESCUDO
 
+	if (vida < vida_anterior && tomou_dano == true) {
+		if (global.escudo_red == true){
+			vida += 1;
+			global.escudo_red = false;
+		}
+		tomou_dano = true;
+		estado = scr_red_dano;
+		vida_anterior = vida;
+	}
+	
+//POWERUP DE VENENO
+
+	if (global.veneno_blue) && (global.bluebateu) && (tomou_dano == true) {
+		global.veneno_blue = false;
+		alarm[9] = 1;
+	}
+
+
+//ARCO
+	if (_ataque_arco && global.arco_red == true) {
+		global.arco_red = false;
+		alarm[3] = 120;//Tempo de recarga.
+		estado = scr_red_atirando_arco;
 	}
 
 //ESPADA
-	if keyboard_check_pressed(ord("F")) or gamepad_button_check(4, gp_face3){
+	if (_ataque_espada)  {
+		global.redbateu = true;
 		ds_list_clear(inimigos_atingidos);
 		image_index = 0;
 		estado = scr_red_atacando;
@@ -182,6 +242,7 @@ function scr_red_atacando() {
 					var _inst = instance_create_layer(x, y, "Personagem_blue", obj_dano);
 					_inst.alvo = other;
 					_inst.dano = obj_red.dano;
+					tomou_dano = true;
 				}
 			}
 		}
@@ -215,28 +276,32 @@ function scr_red_atacando() {
 	
 function scr_red_morrendo() {
 	if (direc == 0) {
-		sprite_index = spr_red_morrendo_direita;
+		if (global.arco_red){sprite_index = spr_red_morrendo_arco_direita;}else {sprite_index = spr_red_morrendo_direita;}
+	
 		direc = 10;
 	}else {
 		if scr_fim_da_animacao() {instance_destroy(); estado = scr_red_movendo;}	
 	}
 	
 	if (direc == 1) {
-		sprite_index = spr_red_morrendo_esquerda;
+		if (global.arco_red){sprite_index = spr_red_morrendo_arco_esquerda;}else {sprite_index = spr_red_morrendo_esquerda;}
+		
 		direc = 11;
 	}else {
 		if scr_fim_da_animacao() {instance_destroy(); estado = scr_red_movendo;}
 	}
 	
 	if (direc == 2) {
-		sprite_index = spr_red_morrendo_costas;
+		if (global.arco_red){sprite_index = spr_red_morrendo_arco_costas;}else {sprite_index = spr_red_morrendo_costas;}
+		
 		direc = 12;
 	}else {
 		if scr_fim_da_animacao() {instance_destroy(); estado = scr_red_movendo;}
 	}
 	
 	if (direc == 3){
-		sprite_index = spr_red_morrendo_frente;
+		if (global.arco_red){sprite_index = spr_red_morrendo_arco_frente;}else {sprite_index = spr_red_morrendo_frente;}
+		
 		direc = 13;
 	}else {
 		if scr_fim_da_animacao() {instance_destroy(); estado = scr_red_movendo;}
@@ -248,13 +313,13 @@ function scr_red_morrendo() {
 function scr_red_dano() {
 	tomou_dano = false;
 	if (direc == 0) {
-		sprite_index = spr_red_dano_direita;
+		if (global.arco_red){sprite_index = spr_red_dano_arco_direita;}else {sprite_index = spr_red_dano_direita;}
 	}else if (direc == 1) {
-		sprite_index = spr_red_dano_esquerda;
+		if (global.arco_red){sprite_index = spr_red_dano_arco_esquerda;}else {sprite_index = spr_red_dano_esquerda;}
 	}else if (direc == 3) {
-		sprite_index = spr_red_dano_frente;
+		if (global.arco_red){sprite_index = spr_red_dano_arco_frente;}else {sprite_index = spr_red_dano_frente;}
 	}else {
-		sprite_index = spr_red_dano_costas;
+		if (global.arco_red){sprite_index = spr_red_dano_arco_costas;}else {sprite_index = spr_red_dano_costas;}
 	}
 
 	if scr_fim_da_animacao() {
@@ -265,17 +330,54 @@ function scr_red_dano() {
 function scr_perdendo() {
 	
 	if (direc == 0) {
-		sprite_index = spr_red_perdendo_direita;
+		if (global.arco_red){sprite_index = spr_red_perdendo_arco_direita;}else {sprite_index = spr_red_perdendo_direita;}
 	}else if (direc == 1) {
-		sprite_index = spr_red_perdendo_esquerda;
+		if (global.arco_red){sprite_index = spr_red_perdendo_arco_esquerda;}else {sprite_index = spr_red_perdendo_esquerda;}
 	}else if (direc == 3) {
-		sprite_index = spr_red_perdendo_frente;
+		if (global.arco_red){sprite_index = spr_red_perdendo_arco_frente;}else {sprite_index = spr_red_perdendo_frente;}
 	}else {
-		sprite_index = spr_red_perdendo_costas;
+		if (global.arco_red){sprite_index = spr_red_perdendo_arco_costas;}else {sprite_index = spr_red_perdendo_costas;}
 	}
 	
 	if scr_fim_da_animacao() {
 		room_goto(rm_vitoria_blue);
 	}
 	
+}
+
+function scr_red_atirando_arco() {
+
+	if (direc == 0) {
+		sprite_index = spr_red_atacando_arco_direita;
+	}else if (direc == 1) {
+		sprite_index = spr_red_atacando_arco_esquerda;
+	}else if (direc == 3) {
+		sprite_index = spr_red_atacando_arco_frente;
+	}else {
+		sprite_index = spr_red_atacando_arco_costas;
+	}
+
+
+	if scr_fim_da_animacao() {
+		alarm[4] = 30;// Distancia da flecha.
+
+		 
+		 audio_play_sound(snd_tiro, 1, false);
+		if (direc == 0) {
+			instance_create_layer(x + 100, y - 65, "Instances", obj_flecha_red);		
+		}else if (direc == 1) {
+			instance_create_layer(x - 10, y - 65, "Instances", obj_flecha_red);
+		}else if (direc == 3) {
+			instance_create_layer(x , y - 90, "Instances", obj_flecha_red);
+		}else {
+			instance_create_layer(x , y - 110, "Instances", obj_flecha_red);
+		}
+
+		estado = scr_red_movendo;
+	}
+
+}
+	
+function scr_red_congelado(){
+	image_index = 4;
 }
