@@ -3,8 +3,8 @@
 // Código do objeto 'obj_flecha'
 /// Create Event
 
-image_xscale = 0.4;
-image_yscale = 0.4;
+image_xscale = 0.3;
+image_yscale = 0.3;
 
 
 speed = 20; // Define a velocidade da flecha (ajuste conforme necessário)

@@ -5,7 +5,7 @@ image_yscale = 0.5;
 if vida <= 0 {
 	instance_destroy();
 	obj_red.estado = scr_perdendo;
-	
+	room_goto(rm_vitoria_blue);
 }
 
 

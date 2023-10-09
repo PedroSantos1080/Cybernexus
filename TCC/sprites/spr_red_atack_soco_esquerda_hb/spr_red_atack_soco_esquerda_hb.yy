@@ -4,7 +4,7 @@
   "name": "spr_red_atack_soco_esquerda_hb",
   "bbox_bottom": 384,
   "bbox_left": 0,
-  "bbox_right": 120,
+  "bbox_right": 192,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 4,

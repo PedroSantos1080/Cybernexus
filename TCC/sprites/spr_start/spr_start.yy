@@ -30,7 +30,7 @@
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 128,
+  "height": 61,
   "HTile": false,
   "layers": [
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"e223a77a-1789-454d-a0df-8bc4c79ad4ed","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
@@ -59,7 +59,7 @@
     ],
     "top": 0,
   },
-  "origin": 9,
+  "origin": 4,
   "parent": {
     "name": "Elementos",
     "path": "folders/Sprites/Menu/Elementos.yy",
@@ -108,8 +108,8 @@
     ],
     "visibleRange": null,
     "volume": 1.0,
-    "xorigin": 405,
-    "yorigin": 61,
+    "xorigin": 399,
+    "yorigin": 30,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,
@@ -119,5 +119,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 900,
+  "width": 798,
 }

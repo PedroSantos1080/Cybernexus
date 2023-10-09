@@ -4,7 +4,7 @@
   "name": "spr_blue_atack_soco_frente_hb",
   "bbox_bottom": 799,
   "bbox_left": 0,
-  "bbox_right": 276,
+  "bbox_right": 296,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 4,

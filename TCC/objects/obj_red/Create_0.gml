@@ -31,7 +31,8 @@ vveloc = 0;
 
 
 alpha_hit = 0;
-vida = 3;
+vida = 25;
+max_vida = vida;
 vida_anterior = vida; 
 
 alarm[0] = 0;
@@ -43,4 +44,4 @@ estado = scr_red_movendo;
 	
 inimigos_atingidos = ds_list_create();
 
-dano = 1;
+dano = 20;

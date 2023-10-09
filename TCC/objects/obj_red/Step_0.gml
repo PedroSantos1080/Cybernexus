@@ -7,7 +7,6 @@ if (global.pause){
 	image_speed = 1;
 }
 
-
 depth = -y;
 
 image_xscale = 0.3;

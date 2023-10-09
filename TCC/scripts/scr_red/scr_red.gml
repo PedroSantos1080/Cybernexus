@@ -1,5 +1,6 @@
 function scr_red_movendo() {
 	audio_stop_sound(snd_espada);
+	audio_group_load(audiogroup_default);
 	//audio_stop_sound(snd_tiro);
 
 	#region Movimentação
@@ -8,14 +9,14 @@ function scr_red_movendo() {
 
 	global.redbateu = false;
 
-	gamepad_set_axis_deadzone(4, 0.25);
-    _esquerda = keyboard_check(ord("A")) or gamepad_axis_value(4, gp_axislh) < -0.25;
-    _direita = keyboard_check(ord("D")) or gamepad_axis_value(4, gp_axislh) > 0.25;
-    _cima = keyboard_check(ord("W")) or gamepad_axis_value(4, gp_axislv) < -0.25;
-    _baixo = keyboard_check(ord("S")) or gamepad_axis_value(4, gp_axislv) > 0.25;
+	gamepad_set_axis_deadzone(global.controle1, 0.25);
+    _esquerda = keyboard_check(ord("A")) or gamepad_axis_value(global.controle1, gp_axislh) < -0.25;
+    _direita = keyboard_check(ord("D")) or gamepad_axis_value(global.controle1, gp_axislh) > 0.25;
+    _cima = keyboard_check(ord("W")) or gamepad_axis_value(global.controle1, gp_axislv) < -0.25;
+    _baixo = keyboard_check(ord("S")) or gamepad_axis_value(global.controle1, gp_axislv) > 0.25;
     _parado = keyboard_check(vk_nokey);
-	_ataque_espada = keyboard_check(ord("F"))  or gamepad_button_check(4, gp_face3);
-	_ataque_arco = keyboard_check(ord("G"))  or gamepad_button_check(4, gp_face4);
+	_ataque_espada = keyboard_check(ord("F"))  or gamepad_button_check(global.controle1, gp_face3);
+	_ataque_arco = keyboard_check(ord("G"))  or gamepad_button_check(global.controle1, gp_face4);
 	
 
     
@@ -95,7 +96,7 @@ function scr_red_movendo() {
 	
 //POWERUP DE GELO
 if (tomou_dano = true) && (global.bluebateu = true) && (global.pwup_gelo_pause_blue = true) {
-	
+	audio_play_sound(snd_travamento, 1, false);
 	global.pwup_gelo_pause_blue = false;
 	alarm[10] = 1;
 	
@@ -139,6 +140,7 @@ if (tomou_dano = true) && (global.bluebateu = true) && (global.pwup_gelo_pause_b
 //POWERUP DE VENENO
 
 	if (global.veneno_blue) && (global.bluebateu) && (tomou_dano == true) {
+		audio_play_sound(snd_travamento, 1, false);
 		global.veneno_blue = false;
 		alarm[9] = 1;
 	}

@@ -2,7 +2,7 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_red_atack_soco_costas_hb",
-  "bbox_bottom": 201,
+  "bbox_bottom": 527,
   "bbox_left": 0,
   "bbox_right": 296,
   "bbox_top": 0,

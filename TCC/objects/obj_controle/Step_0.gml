@@ -5,6 +5,7 @@
 
 
 
+
 if keyboard_check(vk_f11) {
 	window_set_fullscreen(1);
 }

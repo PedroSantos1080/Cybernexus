@@ -6,3 +6,6 @@
 //draw_text(x + 80,y + 80, vida);
 
 
+if (global.controle2 > 0) {
+	draw_text(x ,y, global.controle2);
+}

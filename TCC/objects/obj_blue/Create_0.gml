@@ -17,7 +17,8 @@ velocidade = 4;
 
 direc = 9;
 alpha_hit = 0;
-vida = 3;
+vida = 25;
+max_vida = vida;
 vida_anterior = vida;
 alarm[0] = 0;
 

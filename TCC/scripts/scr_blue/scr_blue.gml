@@ -1,15 +1,16 @@
 function scr_blue_movendo(){
 	#region Movimentação
+	audio_group_load(audiogroup_default);
 	var _esquerda, _direita, _baixo, _cima, _parado,_ataque_espada, _ataque_arco;
 
-	gamepad_set_axis_deadzone(5, 0.25);
-	_esquerda = keyboard_check(vk_left) or gamepad_axis_value(5, gp_axislh) < -0.25;
-	_direita = keyboard_check(vk_right) or gamepad_axis_value(5, gp_axislh) > 0.25;
-	_cima = keyboard_check(vk_up) or gamepad_axis_value(5, gp_axislv) < -0.25;
-	_baixo = keyboard_check(vk_down) or gamepad_axis_value(5, gp_axislv) > 0.25
+	gamepad_set_axis_deadzone(global.controle2, 0.25);
+	_esquerda = keyboard_check(vk_left) or gamepad_axis_value(global.controle2, gp_axislh) < -0.25;
+	_direita = keyboard_check(vk_right) or gamepad_axis_value(global.controle2, gp_axislh) > 0.25;
+	_cima = keyboard_check(vk_up) or gamepad_axis_value(global.controle2, gp_axislv) < -0.25;
+	_baixo = keyboard_check(vk_down) or gamepad_axis_value(global.controle2, gp_axislv) > 0.25
 	_parado = keyboard_check(vk_nokey);
-	_ataque_espada = keyboard_check(ord("L"))  or gamepad_button_check(5, gp_face3);	
-	_ataque_arco = keyboard_check(ord("K"))  or gamepad_button_check(5, gp_face4);
+	_ataque_espada = keyboard_check(ord("L"))  or gamepad_button_check(global.controle2, gp_face3);	
+	_ataque_arco = keyboard_check(ord("K"))  or gamepad_button_check(global.controle2, gp_face4);
 	
 	global.bluebateu = false;
 
@@ -77,7 +78,7 @@ function scr_blue_movendo(){
 	
 //POWERUP DE GELO
 	if (tomou_dano = true) && (global.redbateu = true) && (global.pwup_gelo_pause_red = true) {
-	
+		audio_play_sound(snd_travamento, 1, false);
 		global.pwup_gelo_pause_red = false;
 		alarm[10] = 1;
 	
@@ -107,10 +108,10 @@ function scr_blue_movendo(){
 	
 //POWERUP DO ESCUDO	
 	if (vida < vida_anterior && tomou_dano == true) {
-			if (global.escudo_blue == true){
+		if (global.escudo_blue == true){
 			vida += 1;
 			global.escudo_blue = false;
-		}
+	}
 		tomou_dano = true;
 		estado = scr_blue_dano;
 		vida_anterior = vida;
@@ -118,6 +119,7 @@ function scr_blue_movendo(){
 	
 //POWERUP DE VENENO
 	if (global.veneno_red) && (global.redbateu) && (tomou_dano == true) {
+		audio_play_sound(snd_virus, 1, false);
 		global.veneno_red = false;
 		alarm[9] = 1;
 	}

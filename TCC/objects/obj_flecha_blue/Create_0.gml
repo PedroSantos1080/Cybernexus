@@ -7,8 +7,8 @@
 speed = 20; // Define a velocidade da flecha (ajuste conforme necessário)
 
 
-image_xscale = 0.4;
-image_yscale = 0.4;
+image_xscale = 0.3;
+image_yscale = 0.3;
 
 
 // Defina a direção da flecha com base na direção do personagem
