@@ -26,7 +26,7 @@ valor = 1;
  _valor = random(100);
 
 if (_chance >= _valor){
-	instance_create_layer(x, y, "Instances", obj_dropale);
+	instance_create_layer(x, y, "Instances", obj_espada);
 }
 	 }
 	 

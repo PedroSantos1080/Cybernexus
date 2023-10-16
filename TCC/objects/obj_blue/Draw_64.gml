@@ -6,6 +6,9 @@
 //draw_text(x + 80,y + 80, vida);
 
 
-if (global.controle2 > 0) {
-	draw_text(x ,y, global.controle2);
-}
+//if (global.controle2 > 0) {
+//	draw_text(x ,y, global.controle2);
+//}
+
+//draw_text(x + 80, y + 80, "Dano_arco: " + string(global.dano_arco_blue));
+//draw_text(x + 50,y, "Dano_arco_anterior: " + string(global.dano_arco_anterior_blue));

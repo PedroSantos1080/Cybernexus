@@ -12,7 +12,6 @@
     {"name":"inst_5B84083B","path":"rooms/rm_selecao_tempo/rm_selecao_tempo.yy",},
     {"name":"inst_5847CB14","path":"rooms/rm_selecao_tempo/rm_selecao_tempo.yy",},
     {"name":"inst_31C868BD","path":"rooms/rm_selecao_tempo/rm_selecao_tempo.yy",},
-    {"name":"inst_73BEB8AE","path":"rooms/rm_selecao_tempo/rm_selecao_tempo.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -22,7 +21,6 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5B84083B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":true,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_timer","path":"objects/obj_timer/obj_timer.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":992.0,"y":96.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5847CB14","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_jogar","path":"objects/obj_jogar/obj_jogar.yy",},"properties":[],"rotation":0.0,"scaleX":0.8,"scaleY":0.8,"x":960.0,"y":992.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_31C868BD","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_voltar","path":"objects/obj_voltar/obj_voltar.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":576.0,"y":960.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_73BEB8AE","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_menu","path":"objects/obj_menu/obj_menu.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":896.0,"y":64.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRAssetLayer","resourceVersion":"1.0","name":"Assets_1","assets":[
         {"resourceType":"GMRSpriteGraphic","resourceVersion":"1.0","name":"graphic_3CBBF106","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"spriteId":{"name":"spr_tela_duelo","path":"sprites/spr_tela_duelo/spr_tela_duelo.yy",},"x":960.0,"y":544.0,},

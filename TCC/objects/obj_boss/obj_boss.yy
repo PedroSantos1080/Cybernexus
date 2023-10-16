@@ -14,8 +14,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Timer",
-    "path": "folders/Objetos/Timer.yy",
+    "name": "Boss",
+    "path": "folders/Objetos/Mobs/Boss.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -34,8 +34,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_boss_parado",
-    "path": "sprites/spr_boss_parado/spr_boss_parado.yy",
+    "name": "spr_boss",
+    "path": "sprites/spr_boss/spr_boss.yy",
   },
   "spriteMaskId": null,
   "visible": true,

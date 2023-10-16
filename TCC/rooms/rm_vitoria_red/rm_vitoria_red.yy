@@ -9,12 +9,14 @@
   "instanceCreationOrder": [
     {"name":"inst_7EBDD196","path":"rooms/rm_vitoria_red/rm_vitoria_red.yy",},
     {"name":"inst_42764C2C","path":"rooms/rm_vitoria_red/rm_vitoria_red.yy",},
+    {"name":"inst_2503D6F4","path":"rooms/rm_vitoria_red/rm_vitoria_red.yy",},
   ],
   "isDnd": false,
   "layers": [
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Instances_1","depth":0,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7EBDD196","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_jogar_novamente","path":"objects/obj_jogar_novamente/obj_jogar_novamente.yy",},"properties":[],"rotation":0.0,"scaleX":0.6,"scaleY":0.6,"x":1312.0,"y":916.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_42764C2C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_voltar_menu","path":"objects/obj_voltar_menu/obj_voltar_menu.yy",},"properties":[],"rotation":0.0,"scaleX":0.6,"scaleY":0.6,"x":1312.0,"y":984.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2503D6F4","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_menu","path":"objects/obj_menu/obj_menu.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":896.0,"y":64.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRBackgroundLayer","resourceVersion":"1.0","name":"Backgrounds_1","animationFPS":4.0,"animationSpeedType":0,"colour":4294967295,"depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"spriteId":{"name":"spr_tela_vitoria_duelo_red","path":"sprites/spr_tela_vitoria_duelo_red/spr_tela_vitoria_duelo_red.yy",},"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],

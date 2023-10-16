@@ -2,6 +2,13 @@
 // Você pode escrever seu código neste editor
 randomize();
 
+
+
+global.espada_red = false;
+global.espada_blue = false;
+global.red_pegou_espada = false;
+global.blue_pegou_espada = false;
+
 _c = make_color_rgb(131, 68, 87);
 _largura = display_get_gui_width();
 _altura = display_get_gui_height();

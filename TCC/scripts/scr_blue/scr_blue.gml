@@ -1,7 +1,7 @@
 function scr_blue_movendo(){
 	#region Movimentação
 	audio_group_load(audiogroup_default);
-	var _esquerda, _direita, _baixo, _cima, _parado,_ataque_espada, _ataque_arco;
+	var _esquerda, _direita, _baixo, _cima, _parado,_ataque_espada, _ataque_arco, _troca_arma;
 
 	gamepad_set_axis_deadzone(global.controle2, 0.25);
 	_esquerda = keyboard_check(vk_left) or gamepad_axis_value(global.controle2, gp_axislh) < -0.25;
@@ -11,40 +11,73 @@ function scr_blue_movendo(){
 	_parado = keyboard_check(vk_nokey);
 	_ataque_espada = keyboard_check(ord("L"))  or gamepad_button_check(global.controle2, gp_face3);	
 	_ataque_arco = keyboard_check(ord("K"))  or gamepad_button_check(global.controle2, gp_face4);
+	_troca_arma = keyboard_check_pressed(ord("M")) or gamepad_button_check_pressed(global.controle2, gp_shoulderr);
+	
+	if (global.blue_pegou_espada && global.blue_pegou_arco) {
+	
+		if (_troca_arma) {
+			arma += 1;
+		}
+	
+		if (arma >= ARMAS2.ALTURA2) {
+			arma = 0;
+		}else if (arma < 0) {
+			arma = ARMAS2.ALTURA2 -1;
+		}
+		
+		if (arma == 0) {
+			global.arco_blue = true;
+			global.espada_blue = false;
+		} 
+		
+		if (arma == 1) {
+			global.arco_blue = false;
+			global.espada_blue = true;
+		}
+	}
+	
 	
 	global.bluebateu = false;
 
     if (_direita) {
         hveloc = velocidade;
-        if (global.arco_blue){sprite_index = spr_blue_correndo_arco_direita;}else{sprite_index = spr_blue_correndo_direita;}
+        if (global.arco_blue){sprite_index = spr_blue_correndo_arco_direita;}else
+		if (global.espada_blue){sprite_index = spr_blue_correndo_espada_direita;}else{sprite_index = spr_blue_correndo_direita;}
         direc = 0;
     } else if (_esquerda) {
         hveloc = -velocidade;
-        if (global.arco_blue){sprite_index = spr_blue_correndo_arco_esquerda;}else{sprite_index = spr_blue_correndo_esquerda;}
+        if (global.arco_blue){sprite_index = spr_blue_correndo_arco_esquerda;}else
+		if (global.espada_blue){sprite_index = spr_blue_correndo_espada_esquerda;}else{sprite_index = spr_blue_correndo_esquerda;}
         direc = 1;
     } else {
         hveloc = 0;
 	if direc == 0 {
-		if (global.arco_blue){sprite_index = spr_blue_arco_direita;}else {sprite_index = spr_blue_parado_direita;}		
+		if (global.arco_blue){sprite_index = spr_blue_arco_direita;}else
+		if (global.espada_blue){sprite_index = spr_blue_espada_direita;}else{sprite_index = spr_blue_parado_direita;}		
 	} else if direc == 1{			
-		if (global.arco_blue){sprite_index = spr_blue_arco_esquerda;}else {sprite_index = spr_blue_parado_esquerda;}		
+		if (global.arco_blue){sprite_index = spr_blue_arco_esquerda;}else
+		if (global.espada_blue){sprite_index = spr_blue_espada_esquerda;}else{sprite_index = spr_blue_parado_esquerda;}		
 	}		
     }
 
    if (_cima) {
-	   if (global.arco_blue){sprite_index = spr_blue_correndo_arco_costas;}else {sprite_index = spr_blue_correndo_costas;}
+	   if (global.arco_blue){sprite_index = spr_blue_correndo_arco_costas;}else 
+	   if (global.espada_blue){sprite_index = spr_blue_correndo_espada_costas;}else{sprite_index = spr_blue_correndo_costas;}
         vveloc = -velocidade;
 		 direc = 2;
     } else if (_baixo) {
-		if (global.arco_blue){sprite_index = spr_blue_correndo_arco_frente;}else{sprite_index = spr_blue_correndo_frente;}
+		if (global.arco_blue){sprite_index = spr_blue_correndo_arco_frente;}else
+		if (global.espada_blue){sprite_index = spr_blue_correndo_espada_frente;}else{sprite_index = spr_blue_correndo_frente;}
         vveloc = velocidade;
 		 direc = 3;
     } else {
         vveloc = 0;
 		if direc == 2 {
-		if (global.arco_blue){sprite_index = spr_blue_arco_costas;}else {sprite_index = spr_blue_parado_costas;}
+		if (global.arco_blue){sprite_index = spr_blue_arco_costas;}else{sprite_index = spr_blue_parado_costas;} 
+		if (global.espada_blue){sprite_index = spr_blue_parado_costas;}
 	} else if direc == 3{			
-		if (global.arco_blue){sprite_index = spr_blue_arco_frente;}else {sprite_index = spr_blue_parado_frente;}		
+		if (global.arco_blue){sprite_index = spr_blue_arco_frente;}else		
+		if (global.espada_blue){sprite_index = spr_blue_espada_frente;}else{sprite_index = spr_blue_parado_frente;}		
 	}		
     }
 	#endregion
@@ -148,11 +181,9 @@ function scr_blue_atacando() {
 //ATAQUE EM INIMIGOS
 	var inimigos_na_hitbox = ds_list_create();
 	
-    var inimigo1 = instance_place_list(x, y, obj_inimigo, inimigos_na_hitbox, false);
-	var inimigo2 = instance_place_list(x, y, obj_inimigo2, inimigos_na_hitbox, false);
-	var inimigo3 = instance_place_list(x, y, obj_inimigo3, inimigos_na_hitbox, false);
-	var inimigo4 = instance_place_list(x, y, obj_boss, inimigos_na_hitbox, false);
-	var inimigos = inimigo1 or inimigo2 or inimigo3 or inimigo4;
+    var inimigo1 = instance_place_list(x, y, obj_paimobs, inimigos_na_hitbox, false);
+	var inimigo2 = instance_place_list(x, y, obj_boss, inimigos_na_hitbox, false);
+	var inimigos = inimigo1 or inimigo2;
 
 
 	if (inimigos) > 0 {
@@ -163,10 +194,12 @@ function scr_blue_atacando() {
 				ds_list_add(inimigos_atingidos_blue, inimigoID);
 				
 				with(inimigoID) {
-					 vida -= other.dano;
+					vida -= other.dano;
+					if (global.espada_blue) {vida -= other._dano_espada_anterior;} 
 					var _inst = instance_create_layer(x, y, "Personagem_blue", obj_dano);
 					_inst.alvo = other;
 					_inst.dano = obj_blue.dano;
+					if (global.espada_blue) {_inst.dano = obj_blue._dano_espada_anterior;}
 				}
 			}
 		}
@@ -183,9 +216,11 @@ function scr_blue_atacando() {
 				
 				with(inimigoID) {
 					obj_cristal_red.vida -= obj_blue.dano;
+					if (global.espada_blue) {obj_cristal_red.vida -= obj_blue._dano_espada_anterior;} 
 					var _inst = instance_create_layer(x, y, "Cristal_red", obj_dano);
 					_inst.alvo = other;
 					_inst.dano = obj_blue.dano;
+					if (global.espada_blue) {_inst.dano = obj_blue._dano_espada_anterior;}
 				}
 			}
 		}
@@ -203,31 +238,53 @@ function scr_blue_atacando() {
 				
 			with(inimigoID) {
 					obj_red.vida -= obj_blue.dano;
+					if (global.espada_blue) {obj_red.vida -= obj_blue._dano_espada_anterior;}
 					var _inst = instance_create_layer(x, y, "Personagem_red", obj_dano);
 					_inst.alvo = other;
 					_inst.dano = obj_blue.dano;
+					if (global.espada_blue) {_inst.dano = obj_blue._dano_espada_anterior;}
 					tomou_dano = true;
 				}
 			}
 		}
 	}
 	
-	
-	ds_list_destroy(inimigos_na_hitbox);
-	
-	if (direc == 0) {
-		sprite_index = spr_blue_atack_soco_direita;
-		mask_index = spr_blue_atack_soco_direita_hb;
-	}else if (direc == 1) {
-		sprite_index = spr_blue_atack_soco_esquerda;
-		mask_index = spr_blue_atack_soco_esquerda_hb;
+														 
+	ds_list_destroy(inimigos_na_hitbox);				 
+														 
+	if (direc == 0) {	
+		if (global.espada_blue) {
+			sprite_index = spr_blue_espada_atacando_direita;	 
+			mask_index = spr_blue_espada_atacando_direita_hb;	
+		}else{
+			sprite_index = spr_blue_atack_soco_direita;		 
+			mask_index = spr_blue_atack_soco_direita_hb;	 
+		}
+	}else if (direc == 1) {								 
+		if (global.espada_blue) {
+			sprite_index = spr_blue_espada_atacando_esquerda;	 
+			mask_index = spr_blue_espada_atacando_esquerda_hb;			
+		}else {
+			sprite_index = spr_blue_atack_soco_esquerda;	 
+			mask_index = spr_blue_atack_soco_esquerda_hb;	 
+		}
 	}else if (direc == 3) {
-		sprite_index = spr_blue_atack_soco_frente;
-		mask_index = spr_blue_atack_soco_frente_hb;
+		if (global.espada_blue) {
+			sprite_index = spr_blue_espada_atacando_frente;	 
+			mask_index = spr_blue_espada_atacando_frente_hb;	
+		}else {
+			sprite_index = spr_blue_atack_soco_frente;
+			mask_index = spr_blue_atack_soco_frente_hb;
+		}	
 	}else {
-		sprite_index = spr_blue_atack_soco_costas;
-		mask_index = spr_blue_atack_soco_costas_hb;
-	}
+		if (global.espada_blue) {
+			sprite_index = spr_blue_espada_atacando_costas;	 
+			mask_index = spr_blue_espada_atacando_costas_hb;	
+		}else {
+			sprite_index = spr_blue_atack_soco_costas;
+			mask_index = spr_blue_atack_soco_costas_hb;
+		}
+	}											
 	
 	
 	
@@ -244,28 +301,32 @@ function scr_blue_atacando() {
 
 function scr_blue_morrendo() {
 	if (direc == 0) {
-		if (global.arco_blue){sprite_index = spr_blue_morrendo_arco_direita;}else{sprite_index = spr_blue_morrendo_direita;}
+		if (global.arco_blue){sprite_index = spr_blue_morrendo_arco_direita;}else
+		if (global.espada_blue){sprite_index = spr_blue_morrendo_espada_direita;}else{sprite_index = spr_blue_morrendo_direita;}
 		direc = 10;
 	}else {
 		if scr_fim_da_animacao() {instance_destroy(); estado = scr_blue_movendo;}	
 	}
 	
 	if (direc == 1) {
-		if (global.arco_blue){sprite_index = spr_blue_morrendo_arco_esquerda;}else{sprite_index = spr_blue_morrendo_esquerda;}
+		if (global.arco_blue){sprite_index = spr_blue_morrendo_arco_esquerda;}else
+		if (global.espada_blue){sprite_index = spr_blue_morrendo_espada_esquerda;}else{sprite_index = spr_blue_morrendo_esquerda;}
 		direc = 11;
 	}else {
 		if scr_fim_da_animacao() {instance_destroy(); estado = scr_blue_movendo;}
 	}
 	
 	if (direc == 2) {
-		if (global.arco_blue){sprite_index = spr_blue_morrendo_arco_costas;}else {sprite_index = spr_blue_morrendo_costas;}
+		if (global.arco_blue){sprite_index = spr_blue_morrendo_arco_costas;}else
+		if (global.espada_blue){sprite_index = spr_blue_morrendo_costas;}else{sprite_index = spr_blue_morrendo_costas;}
 		direc = 12;
 	}else {
 		if scr_fim_da_animacao() {instance_destroy(); estado = scr_blue_movendo;}
 	}
 	
 	if (direc == 3){
-		if (global.arco_blue){sprite_index = spr_blue_morrendo_arco_frente;}else {sprite_index = spr_blue_morrendo_frente;}
+		if (global.arco_blue){sprite_index = spr_blue_morrendo_arco_frente;}else
+		if (global.espada_blue){sprite_index = spr_blue_morrendo_espada_frente;}else{sprite_index = spr_blue_morrendo_frente;}
 		direc = 13;
 	}else {
 		if scr_fim_da_animacao() {instance_destroy(); estado = scr_blue_movendo;}
@@ -277,13 +338,17 @@ function scr_blue_morrendo() {
 function scr_blue_dano() {
 	tomou_dano = false;
 	if (direc == 0) {
-		if (global.arco_blue){sprite_index = spr_blue_dano_arco_direita;}else {sprite_index = spr_blue_dano_direita;}
+		if (global.arco_blue){sprite_index = spr_blue_dano_arco_direita;}else
+		if (global.espada_blue){sprite_index = spr_blue_dano_espada_direita;}else{sprite_index = spr_blue_dano_direita;}
 	}else if (direc == 1) {
-		if (global.arco_blue){sprite_index = spr_blue_dano_arco_esquerda;}else {sprite_index = spr_blue_dano_esquerda;}
+		if (global.arco_blue){sprite_index = spr_blue_dano_arco_esquerda;}else
+		if (global.espada_blue){sprite_index = spr_blue_dano_espada_esquerda;}else{sprite_index = spr_blue_dano_esquerda;}
 	}else if (direc == 3) {
-		if (global.arco_blue){sprite_index = spr_blue_dano_arco_frente;}else {sprite_index = spr_blue_dano_frente;}
+		if (global.arco_blue){sprite_index = spr_blue_dano_arco_frente;}else
+		if (global.espada_blue){sprite_index = spr_blue_dano_espada_frente;}else{sprite_index = spr_blue_dano_frente;}
 	}else {
-		if (global.arco_blue){sprite_index = spr_blue_dano_arco_costas;}else {sprite_index = spr_blue_dano_costas;}
+		if (global.arco_blue){sprite_index = spr_blue_dano_arco_costas;}else
+		if (global.arco_blue){sprite_index = spr_blue_dano_costas;}else{sprite_index = spr_blue_dano_costas;}
 	}
 
 	if scr_fim_da_animacao() {
@@ -294,21 +359,23 @@ function scr_blue_dano() {
 function scr_blue_perdendo() {
 	
 	if (direc == 0) {
-		if (global.arco_red){sprite_index = spr_red_perdendo_arco_direita;}else {sprite_index = spr_red_perdendo_direita;}
+		if (global.arco_red){sprite_index = spr_red_perdendo_arco_direita;}else 
+		if (global.espada_red){sprite_index = spr_red_perdendo_espada_direita;}else{sprite_index = spr_red_perdendo_direita;}
 	}else if (direc == 1) {
-		if (global.arco_red){sprite_index = spr_red_perdendo_arco_esquerda;}else {sprite_index = spr_red_perdendo_esquerda;}
+		if (global.arco_red){sprite_index = spr_red_perdendo_arco_esquerda;}else 
+		if (global.espada_red){sprite_index = spr_red_perdendo_espada_esquerda;}else{sprite_index = spr_red_perdendo_esquerda;}
 	}else if (direc == 3) {
-		if (global.arco_red){sprite_index = spr_red_perdendo_arco_frente;}else {sprite_index = spr_red_perdendo_frente;}
+		if (global.arco_red){sprite_index = spr_red_perdendo_arco_frente;}else 
+		if (global.espada_red){sprite_index = spr_red_perdendo_espada_frente;}else{sprite_index = spr_red_perdendo_frente;}
 	}else {
-		if (global.arco_red){sprite_index = spr_red_perdendo_arco_costas;}else {sprite_index = spr_red_perdendo_costas;}
+		if (global.arco_red){sprite_index = spr_red_perdendo_arco_costas;}else 
+		if (global.arco_red){sprite_index = spr_red_perdendo_costas;}else{sprite_index = spr_red_perdendo_costas;}
 	}
 	
 
 	if scr_fim_da_animacao() {
 		room_goto(rm_vitoria_red);
 	}
-	
-
 	
 
 }

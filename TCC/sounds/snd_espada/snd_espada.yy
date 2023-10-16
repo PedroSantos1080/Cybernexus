@@ -10,7 +10,7 @@
   "bitRate": 128,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 0.558458,
+  "duration": 2.222222,
   "parent": {
     "name": "Sons",
     "path": "folders/Sons.yy",

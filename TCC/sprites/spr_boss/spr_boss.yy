@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "Inimgos",
-    "path": "folders/Sprites/Inimgos.yy",
+    "name": "Boss",
+    "path": "folders/Sprites/Inimgos/Boss.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

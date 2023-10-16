@@ -24,7 +24,9 @@ function draw_text_colour_outline(){
       draw_text_ext(argument0+round(lengthdir_x(argument3,dto_i)),argument1+round(lengthdir_y(argument3,dto_i)),argument2,argument6,argument7);
     }
  
-    draw_set_color(dto_dcol);
+    
+	draw_set_color(c_white);
+	draw_set_font(f_dano);
  
     draw_text_ext(argument0,argument1,argument2,argument6,argument7);
 }

@@ -29,8 +29,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_cristal",
-    "path": "sprites/spr_cristal/spr_cristal.yy",
+    "name": "spr_cristal_blue",
+    "path": "sprites/spr_cristal_blue/spr_cristal_blue.yy",
   },
   "spriteMaskId": null,
   "visible": true,

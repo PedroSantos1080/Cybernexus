@@ -30,8 +30,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_cristal",
-    "path": "sprites/spr_cristal/spr_cristal.yy",
+    "name": "spr_cristal_red",
+    "path": "sprites/spr_cristal_red/spr_cristal_red.yy",
   },
   "spriteMaskId": null,
   "visible": true,
