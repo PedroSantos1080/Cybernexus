@@ -5,16 +5,14 @@
 
 
 function scr_thewalkers1_movendo(){
+	scr_perseguir();
 
-if (instance_exists(_obj[sorteio])) {
-	dir = point_direction(x, y, (_obj[sorteio]).x, (_obj[sorteio]).y);
-}
+    hspd = lengthdir_x(spd, dir);
+    vspd = lengthdir_y(spd, dir);
 
-hspd = lengthdir_x(spd, dir);
-vspd = lengthdir_y(spd, dir);
+    x += hspd;
+    y += vspd;
 
-x += hspd;
-y += vspd;
 
 if (dir >= 90 && dir < 270) {
 	sprite_index = spr_thewalkers1_esquerda;
@@ -43,15 +41,13 @@ if (dir >= 90 && dir < 270) {
 
 //The Walkers Nível 2
 function scr_thewalkers2_movendo(){
-if (instance_exists(_obj[sorteio])) {
-	dir = point_direction(x, y, (_obj[sorteio]).x, (_obj[sorteio]).y);
-}
+	scr_perseguir();
 
-hspd = lengthdir_x(spd, dir);
-vspd = lengthdir_y(spd, dir);
+    hspd = lengthdir_x(spd, dir);
+    vspd = lengthdir_y(spd, dir);
 
-x += hspd;
-y += vspd;
+    x += hspd;
+    y += vspd;
 
 if (dir >= 90 && dir < 270) {
 	sprite_index = spr_thewalkers2_esquerda;
@@ -98,15 +94,13 @@ if (dir >= 90 && dir < 270) {
 
 //The Walkers Nível 3
 function scr_thewalkers3_movendo(){
-if (instance_exists(_obj[sorteio])) {
-	dir = point_direction(x, y, (_obj[sorteio]).x, (_obj[sorteio]).y);
-}
+	scr_perseguir();
 
-hspd = lengthdir_x(spd, dir);
-vspd = lengthdir_y(spd, dir);
+    hspd = lengthdir_x(spd, dir);
+    vspd = lengthdir_y(spd, dir);
 
-x += hspd;
-y += vspd;
+    x += hspd;
+    y += vspd;
 
 if (dir >= 90 && dir < 270) {
 	sprite_index = spr_thewalkers3_esquerda;

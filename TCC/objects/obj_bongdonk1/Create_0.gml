@@ -8,9 +8,8 @@ image_yscale = 0.4;
 _obj = [obj_red, obj_blue];
 sorteio = irandom_range(0,1);
 
-
-vida = 2;
-dano = 1;
+vida = 6;
+dano = 5;
 
 
 vida_anterior = vida;

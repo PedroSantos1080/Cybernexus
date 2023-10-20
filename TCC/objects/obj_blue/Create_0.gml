@@ -14,10 +14,11 @@ arma = 5;
 
 dano = 1;
 dano_espada = 1;
-_dano_espada_anterior = 0;
+_dano_espada_anterior = global._dano_espada_blue;
+dano_espada_cyb = 150;
 
-global.dano_arco_blue = 1;
-global.dano_arco_anterior_blue = 0;
+//global.dano_arco_blue = 1;
+//global.dano_arco_anterior_blue = 0;
 
 
 //PwUp Veneno
@@ -29,6 +30,8 @@ alarm[9] = 90000;
 
 surgimento = false;
 tomou_dano = false;
+_tomando_dano = false;
+_congelando = false;
 
 velocidade = 4;
 

@@ -1,6 +1,19 @@
 
 depth = 0;
 
+if (global.pwup_fogo_pegar_red) {
+	draw_sprite_ext(spr_fogo_equipado, 0, x + 500, y - 50, 0.1, 0.1, 0 ,c_white, 1);
+}
+
+if (global.veneno_red) {
+	draw_sprite_ext(spr_pwup_veneno_equipado, 0, x + 550, y - 50, 0.1, 0.1, 0 ,c_white, 1);
+}
+
+if (global.pwup_gelo_pause_red) {
+	draw_sprite_ext(spr_gelo_equipado, 0, x + 600, y - 50, 0.1, 0.1, 0 ,c_white, 1);
+}
+
+
 
 var _guia = display_get_gui_height();
 var _spra = sprite_get_height(spr_red_hud_vida);

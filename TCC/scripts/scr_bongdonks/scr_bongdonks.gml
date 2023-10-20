@@ -4,15 +4,13 @@
 //Bongdonk Nível 1
 function scr_bongdonk1_movendo(){
 
-if (instance_exists(_obj[sorteio])) {
-	dir = point_direction(x, y, (_obj[sorteio]).x, (_obj[sorteio]).y);
-}
+	scr_perseguir();
 
-hspd = lengthdir_x(spd, dir);
-vspd = lengthdir_y(spd, dir);
+    hspd = lengthdir_x(spd, dir);
+    vspd = lengthdir_y(spd, dir);
 
-x += hspd;
-y += vspd;
+    x += hspd;
+    y += vspd;
 
 if (dir >= 90 && dir < 270) {
 	sprite_index = spr_bongdonk1_esquerda;
@@ -76,15 +74,14 @@ if (dir >= 90 && dir < 270) {
 
 //Bongdonk Nível 2
 function scr_bongdonk2_movendo(){
-if (instance_exists(_obj[sorteio])) {
-	dir = point_direction(x, y, (_obj[sorteio]).x, (_obj[sorteio]).y);
-}
 
-hspd = lengthdir_x(spd, dir);
-vspd = lengthdir_y(spd, dir);
+	scr_perseguir();
 
-x += hspd;
-y += vspd;
+    hspd = lengthdir_x(spd, dir);
+    vspd = lengthdir_y(spd, dir);
+
+    x += hspd;
+    y += vspd;
 
 if (dir >= 90 && dir < 270) {
 	sprite_index = spr_bongdonk2_esquerda;
@@ -114,8 +111,8 @@ if (dir >= 90 && dir < 270) {
 }
 
 function scr_bongdonk2_morrendo(){
-	_chance_drop_espada = 40;
-	_chance_drop_arco = 25;
+	_chance_drop_espada = 20;
+	_chance_drop_arco = 20;
 	_chance_drop_dano = 9;
 	_chance_drop_fogo = 7;
 	_chance_drop_gelo = 7;
@@ -145,15 +142,14 @@ if (dir >= 90 && dir < 270) {
 
 //The Walkers Nível 3
 function scr_bongdonk3_movendo(){
-if (instance_exists(_obj[sorteio])) {
-	dir = point_direction(x, y, (_obj[sorteio]).x, (_obj[sorteio]).y);
-}
+	
+  	scr_perseguir();
 
-hspd = lengthdir_x(spd, dir);
-vspd = lengthdir_y(spd, dir);
+    hspd = lengthdir_x(spd, dir);
+    vspd = lengthdir_y(spd, dir);
 
-x += hspd;
-y += vspd;
+    x += hspd;
+    y += vspd;
 
 if (dir >= 90 && dir < 270) {
 	sprite_index = spr_bongdonk3_esquerda;
@@ -183,13 +179,13 @@ if (dir >= 90 && dir < 270) {
 }
 
 function scr_bongdonk3_morrendo(){
-	_chance_drop_espada = 40;
-	_chance_drop_arco = 40;
+	_chance_drop_espada = 20;
+	_chance_drop_arco = 20;
 	_chance_drop_dano = 10;
 	_chance_drop_fogo = 9;
 	_chance_drop_gelo = 9;
 	_chance_drop_veneno = 9;
-	_chance_drop_escudo = 20;
+	_chance_drop_escudo = 15;
 	_chance_drop_vida = 7;
 	_dano_espada = 7;
 	_dano_arco = 8;

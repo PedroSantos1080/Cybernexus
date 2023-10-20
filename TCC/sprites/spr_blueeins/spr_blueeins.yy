@@ -26,7 +26,7 @@
   "origin": 0,
   "parent": {
     "name": "Singleplayer",
-    "path": "folders/Sprites/Singleplayer.yy",
+    "path": "folders/Sprites/Red/Singleplayer.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

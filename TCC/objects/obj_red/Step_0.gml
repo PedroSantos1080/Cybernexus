@@ -9,9 +9,6 @@ if (global.pause){
 
 depth = -y;
 
-image_xscale = 0.3;
-image_yscale = 0.3;
-
 
 if scr_fim_da_animacao() && !surgimento{
 	direc = 0;
@@ -22,16 +19,13 @@ script_execute(estado);
 
 //Combate
 
-if keyboard_check_pressed(ord("R")){
-	vida -= 1;
-}
-
 
 if vida <= 0 {
 	estado = scr_red_morrendo;
 }
 
 
-
-
+if (keyboard_check_pressed(ord("Z"))) {
+	vida -= 25;
+}
 

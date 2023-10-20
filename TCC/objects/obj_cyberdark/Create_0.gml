@@ -1,12 +1,22 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
 randomize();
+
+image_xscale = 0.3;
+image_yscale = 0.3;
+
 _obj = [obj_red, obj_blue];
 sorteio = irandom_range(0,1);
 
 
-vida = 3;
+vida = 20;
+vida_anterior = vida;
+tomou_dano = false;
 
+
+surgimento = false;
+
+estado = scr_cyberdark_movendo;
 
 hspd = -1;
 vspd = -1;
@@ -19,22 +29,3 @@ chance = 100;
 
 valor = 1;
 
-//variáveis do meu Drop
-
- dropa_espada = function(_chance = 50, _valor = 1){
-
- _valor = random(100);
-
-if (_chance >= _valor){
-	instance_create_layer(x, y, "Instances", obj_espada);
-}
-	 }
-	 
-	 
-dropa_arco = function(_chance = 20, _valor = 1){
-	_valor = random(100);
-		
-		if (_chance >= _valor){
-			instance_create_layer(x, y, "Instances", obj_arco);
-		}
-	 }

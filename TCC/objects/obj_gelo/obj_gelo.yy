@@ -28,10 +28,7 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": {
-    "name": "spr_gelo",
-    "path": "sprites/spr_gelo/spr_gelo.yy",
-  },
+  "spriteId": null,
   "spriteMaskId": null,
   "visible": true,
 }

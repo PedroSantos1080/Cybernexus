@@ -2,20 +2,19 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 para obter mais informações
 
 function scr_cyberdark_movendo(){
-if (instance_exists(_obj[sorteio])) {
-	dir = point_direction(x, y, (_obj[sorteio]).x, (_obj[sorteio]).y);
-}
+	
+	scr_perseguir();
 
-hspd = lengthdir_x(spd, dir);
-vspd = lengthdir_y(spd, dir);
+    hspd = lengthdir_x(spd, dir);
+    vspd = lengthdir_y(spd, dir);
 
-x += hspd;
-y += vspd;
+    x += hspd;
+    y += vspd;
 
 if (dir >= 90 && dir < 270) {
-	sprite_index = spr_cyberdark_esquerda_fechada;
+	sprite_index = spr_cyberdark_esquerda;
 } else {
-	sprite_index = spr_cyberdark_direita_fechada;
+	sprite_index = spr_cyberdark_direita;
 }
 
 if (vida < vida_anterior && !tomou_dano) {
@@ -26,30 +25,7 @@ if (vida < vida_anterior && !tomou_dano) {
 
 }
 	
-function scr_cyberdark_movendo_aberto(){
-if (instance_exists(_obj[sorteio])) {
-	dir = point_direction(x, y, (_obj[sorteio]).x, (_obj[sorteio]).y);
-}
 
-hspd = lengthdir_x(spd, dir);
-vspd = lengthdir_y(spd, dir);
-
-x += hspd;
-y += vspd;
-
-if (dir >= 90 && dir < 270) {
-	sprite_index = spr_cyberdark_esquerda_aberta;
-} else {
-	sprite_index = spr_cyberdark_direita_aberta;
-}
-
-if (vida < vida_anterior && !tomou_dano) {
-	estado = scr_cyberdark_dano;
-	vida_anterior = vida;
-	tomou_dano = true;
-}
-
-}
 	
 function scr_cyberdark_dano(){
 	tomou_dano = false;
@@ -61,6 +37,19 @@ if (dir >= 90 && dir < 270) {
 }
 
 	if scr_fim_da_animacao(){
+		estado = scr_cyberdark_movendo;
+	}
+}
+
+function scr_cyberdark_atacando() {
+	
+	if (dir >= 90 && dir < 270) {
+		sprite_index = spr_cyberdark_atacando_esquerda;
+	} else {
+		sprite_index = spr_cyberdark_atacando_direita;
+	}
+
+	if (scr_fim_da_animacao()) {
 		estado = scr_cyberdark_movendo;
 	}
 }

@@ -58,6 +58,7 @@ if (room == rm_gameplay) {
 			global.select_creditos = false;
 			global.select_solo = false;
 			global.select_tutorial = true;
+			if (_enter) {audio_play_sound(snd_select_press_menu, 0, false); audio_pause_sound(snd_menu);room_goto(rm_tutorial);}
 		}
 	
 		if (menu == 3) {
@@ -130,13 +131,13 @@ if (room == rm_gameplay) {
 		if (menu_vitoria == 0) {
 			global.select_jogar_novamente = true;
 			global.select_voltar_menu = false;
-			if (_enter) {room_goto(rm_selecao_tempo);}
+			if (_enter) {game_restart();}
 		}
 			
 			if (modos == 1) {
 			global.select_jogar_novamente = false;
 			global.select_voltar_menu = true;
-			if (_enter) {room_goto(rm_menu_modo);}
+			if (_enter) {game_restart();}
 		}
 		
 	}

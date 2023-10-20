@@ -31,26 +31,27 @@ function scr_red_movendo() {
 		}
 		
 		if (arma == 0) {
-			global.arco_red = true;
-			global.espada_red = false;
-		} 
+			global.espada_red = true;
+			global.arco_red = false;
+		}
 		
 		if (arma == 1) {
-			global.arco_red = false;
-			global.espada_red = true;
-		}
+			global.espada_red = false;
+			global.arco_red = true;
+		} 
+		
 	}
 
     
     if (_direita) {
         hveloc = velocidade;
-	   if (global.arco_red){sprite_index = spr_red_correndo_arco_direita;}else
-	   if (global.espada_red){sprite_index = spr_red_correndo_espada_direita;}else{sprite_index = spr_red_correndo_direita;}
+	   if (global.espada_red){sprite_index = spr_red_correndo_espada_direita;}else
+	   if (global.arco_red){sprite_index = spr_red_correndo_arco_direita;}else{sprite_index = spr_red_correndo_direita;}
         //Verifica se o personagem está com o arco, caso esteja, muda de sprite
         direc = 0;						
     } else if (_esquerda) {
-	   if (global.arco_red){sprite_index = spr_red_correndo_arco_esquerda;}else
-	   if (global.espada_red){sprite_index = spr_red_correndo_espada_esquerda;}else{sprite_index = spr_red_correndo_esquerda;}
+	   if (global.espada_red){sprite_index = spr_red_correndo_espada_esquerda;}else
+	   if (global.arco_red){sprite_index = spr_red_correndo_arco_esquerda;}else{sprite_index = spr_red_correndo_esquerda;}
 	   //Verifica se o personagem está com o arco, caso esteja, muda de sprite
         hveloc = -velocidade;
         
@@ -58,38 +59,38 @@ function scr_red_movendo() {
     } else {
         hveloc = 0;
 	if direc == 0 {
-	   if (global.arco_red){sprite_index = spr_red_arco_direita;}else 
-	   if (global.espada_red){sprite_index = spr_red_espada_direita;}else {sprite_index = spr_red_parado_direita;}
+	   if (global.espada_red){sprite_index = spr_red_espada_direita;}else
+	   if (global.arco_red){sprite_index = spr_red_arco_direita;}else {sprite_index = spr_red_parado_direita;}
 	   //Verifica se o personagem está com o arco, caso esteja, muda de sprite
 	} else if direc == 1{
-		if (global.arco_red){sprite_index = spr_red_arco_esquerda;}else
-		if (global.espada_red){sprite_index = spr_red_espada_esquerda;}else {sprite_index = spr_red_parado_esquerda;}		
+	    if (global.espada_red){sprite_index = spr_red_espada_esquerda;}else 
+		if (global.arco_red){sprite_index = spr_red_arco_esquerda;}else{sprite_index = spr_red_parado_esquerda;}		
 		//Verifica se o personagem está com o arco, caso esteja, muda de sprite
 	}		
     }
 
    if (_cima) {
-	   if (global.arco_red){sprite_index = spr_red_correndo_arco_costas;}else 
-	   if (global.espada_red){sprite_index = spr_red_correndo_espada_costas;}else {sprite_index = spr_red_correndo_costas;}
+	   if (global.espada_red){sprite_index = spr_red_correndo_espada_costas;}else
+	   if (global.arco_red){sprite_index = spr_red_correndo_arco_costas;}else {sprite_index = spr_red_correndo_costas;}
 	   //Verifica se o personagem está com o arco, caso esteja, muda de sprite
         vveloc = -velocidade;
 		 direc = 2;
     } else if (_baixo) {
-	   if (global.arco_red){sprite_index = spr_red_correndo_arco_frente;}else
-	   if (global.espada_red){sprite_index = spr_red_correndo_espada_frente;}else{sprite_index = spr_red_correndo_frente;}
+	   if (global.espada_red){sprite_index = spr_red_correndo_espada_frente;}else
+	   if (global.arco_red){sprite_index = spr_red_correndo_arco_frente;}else{sprite_index = spr_red_correndo_frente;}
 	   //Verifica se o personagem está com o arco, caso esteja, muda de sprite
         vveloc = velocidade;
 		 direc = 3;
     } else {
         vveloc = 0;
 		if direc == 2 {
-			if (global.arco_red){sprite_index = spr_red_arco_costas;}else {sprite_index = spr_red_parado_costas;}
-			if (global.espada_red){sprite_index = spr_red_parado_costas;}
+			if (global.espada_red){sprite_index = spr_red_parado_costas;}else
+			if (global.arco_red){sprite_index = spr_red_arco_costas;}else{sprite_index = spr_red_parado_costas;}
 			//Verifica se o personagem está com o arco, caso esteja, muda de sprite
 		
-	} else if direc == 3{			
-		if (global.arco_red){sprite_index = spr_red_arco_frente;}else {sprite_index = spr_red_parado_frente;}		
-		if (global.espada_red){sprite_index = spr_red_espada_frente;}else {sprite_index = spr_red_parado_frente;}		
+	} else if direc == 3{
+		if (global.espada_red){sprite_index = spr_red_espada_frente;}else {sprite_index = spr_red_parado_frente;}
+		if (global.arco_red){sprite_index = spr_red_arco_frente;}else {sprite_index = spr_red_parado_frente;}				
 		//Verifica se o personagem está com o arco, caso esteja, muda de sprite
 	}		
     }
@@ -144,7 +145,7 @@ if (tomou_dano = true) && (global.bluebateu = true) && (global.pwup_gelo_pause_b
 	audio_play_sound(snd_travamento, 1, false);
 	global.pwup_gelo_pause_blue = false;
 	alarm[10] = 1;
-	
+	_congelando = true;
 	
 	if(estado = scr_red_congelado) && (vida <= 0){
 		estado = scr_red_morrendo;
@@ -185,8 +186,9 @@ if (tomou_dano = true) && (global.bluebateu = true) && (global.pwup_gelo_pause_b
 //POWERUP DE VENENO
 
 	if (global.veneno_blue) && (global.bluebateu) && (tomou_dano == true) {
-		audio_play_sound(snd_travamento, 1, false);
+		audio_play_sound(snd_virus, 1, false);
 		global.veneno_blue = false;
+		_tomando_dano = true;
 		alarm[9] = 1;
 	}
 
@@ -204,22 +206,17 @@ if (tomou_dano = true) && (global.bluebateu = true) && (global.pwup_gelo_pause_b
 		ds_list_clear(inimigos_atingidos);
 		image_index = 0;
 		estado = scr_red_atacando;
-		if (global.espada_red) {audio_play_sound(snd_espada_old, 1, false);}else{audio_play_sound(snd_soco, 1, false);}
+		if (global.espada_red) {audio_play_sound(snd_espada, 1, false);}else{audio_play_sound(snd_soco, 1, false);}
 	}
 	#endregion		
 }
 
 function scr_red_atacando() {
-
-	
-	
-	
     //ATAQUE EM INIMIGOS
-
     var inimigos_na_hitbox = ds_list_create();
 	
     var inimigo1 = instance_place_list(x, y, obj_paimobs, inimigos_na_hitbox, false);
-	var inimigo2 = instance_place_list(x, y, obj_boss, inimigos_na_hitbox, false);
+	var inimigo2 = instance_place_list(x, y, obj_kommapunt, inimigos_na_hitbox, false);
 	var inimigos = inimigo1 or inimigo2;
     
 
@@ -266,10 +263,12 @@ function scr_red_atacando() {
 				with(inimigoID) {
 					obj_cristal_blue.vida -= obj_red.dano;
 					if (global.espada_red) {obj_cristal_blue.vida -= obj_red._dano_espada_anterior;}
+					if (global.red_espada_cybernetica && global.espada_red) {obj_cristal_blue.vida -= obj_red.dano_espada_cyb;}
 					var _inst = instance_create_layer(x, y, "Cristal_blue", obj_dano);
 					_inst.alvo = other;
 					_inst.dano = obj_red.dano;
 					if (global.espada_red) {_inst.dano = obj_red._dano_espada_anterior;}
+					if (global.red_espada_cybernetica && global.espada_red) {_inst.dano = obj_red.dano_espada_cyb;}
 				}
 			}
 		}
@@ -344,11 +343,10 @@ function scr_red_atacando() {
 	}
 }
 	
-	
 function scr_red_morrendo() {
 	if (direc == 0) {
+		if (global.espada_red){sprite_index = spr_red_morrendo_espada_direita;}else 
 		if (global.arco_red){sprite_index = spr_red_morrendo_arco_direita;}else {sprite_index = spr_red_morrendo_direita;}
-		if (global.espada_red){sprite_index = spr_red_morrendo_espada_direita;}else {sprite_index = spr_red_morrendo_direita;}
 	
 		direc = 10;
 	}else {
@@ -356,8 +354,8 @@ function scr_red_morrendo() {
 	}
 	
 	if (direc == 1) {
+		if (global.espada_red){sprite_index = spr_red_morrendo_espada_esquerda;}else 
 		if (global.arco_red){sprite_index = spr_red_morrendo_arco_esquerda;}else {sprite_index = spr_red_morrendo_esquerda;}
-		if (global.espada_red){sprite_index = spr_red_morrendo_espada_esquerda;}else {sprite_index = spr_red_morrendo_esquerda;}
 		
 		direc = 11;
 	}else {
@@ -365,8 +363,8 @@ function scr_red_morrendo() {
 	}
 	
 	if (direc == 2) {
-		if (global.arco_red){sprite_index = spr_red_morrendo_arco_costas;}else {sprite_index = spr_red_morrendo_costas;}
 		if (global.espada_red){sprite_index = spr_red_morrendo_costas;}
+		if (global.arco_red){sprite_index = spr_red_morrendo_arco_costas;}else {sprite_index = spr_red_morrendo_costas;}
 		
 		direc = 12;
 	}else {
@@ -374,8 +372,8 @@ function scr_red_morrendo() {
 	}
 	
 	if (direc == 3){
+		if (global.espada_red){sprite_index = spr_red_morrendo_espada_frente;}else 
 		if (global.arco_red){sprite_index = spr_red_morrendo_arco_frente;}else {sprite_index = spr_red_morrendo_frente;}
-		if (global.espada_red){sprite_index = spr_red_morrendo_espada_frente;}else {sprite_index = spr_red_morrendo_frente;}
 		
 		direc = 13;
 	}else {
@@ -423,6 +421,7 @@ function scr_perdendo() {
 	}
 	
 	if scr_fim_da_animacao() {
+		instance_destroy(obj_cristal_red);
 		room_goto(rm_vitoria_blue);
 	}
 	

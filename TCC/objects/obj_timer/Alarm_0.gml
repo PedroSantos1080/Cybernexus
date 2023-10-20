@@ -1,5 +1,7 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
+
+
 Timer_Mil -= 1;
 
 if (Timer_Mil = -1){ //Reduzindo os segundos
@@ -18,7 +20,8 @@ if !(Timer_Sec = 0 && Timer_Min = 1 && Timer_Mil = 0){
 
 //Pausa o jogo
 if (alarm[0] = 0) {
-	instance_create_layer(952, 54,  "Mobs", obj_boss); //Spawna o Boss
+	instance_create_layer(992, 416,  "Mobs", obj_kommapunt); //Spawna o Boss
+	instance_destroy(obj_paimobs);
 }
 
 //Volta o cronômetro após a morte do Boss

@@ -1,5 +1,10 @@
 //Sistema do Boss
-var boss_inst = instance_find(obj_boss, 0); //Procura a instância no obj_boss 
+if (global.pause){ 
+	exit;
+}
+
+
+var boss_inst = instance_find(obj_kommapunt, 0); //Procura a instância no obj_boss 
 
 if (boss_inst != noone) { //Verifica se tem uma instância no obj_boss
 	
@@ -15,9 +20,11 @@ if (boss_inst != noone) { //Verifica se tem uma instância no obj_boss
 //Sistema de Morte Súbita
 if (Timer_Sec = 0 && Timer_Min = 0 && Timer_Mil = 0) {
 	
-	obj_cristal_red.vida  = 1;
-	obj_cristal_blue.vida = 1;
-	alarm[0] = 0; //Para o cronômetro
+	if (instance_exists(obj_cristal_blue) && instance_exists(obj_cristal_red)) {
+		obj_cristal_red.vida  = 1;
+		obj_cristal_blue.vida = 1;
+		alarm[0] = 0; //Para o cronômetro
+	}
 
 }
 

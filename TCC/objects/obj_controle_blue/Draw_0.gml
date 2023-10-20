@@ -1,3 +1,16 @@
+if (global.pwup_fogo_pegar_blue) {
+	draw_sprite_ext(spr_fogo_equipado, 0, x - 500, y - 50, 0.1, 0.1, 0 ,c_white, 1);
+}
+
+if (global.veneno_blue) {
+	draw_sprite_ext(spr_pwup_veneno_equipado, 0, x - 550, y - 50, 0.1, 0.1, 0 ,c_white, 1);
+}
+
+if (global.pwup_gelo_pause_blue) {
+	draw_sprite_ext(spr_gelo_equipado, 0, x - 600, y - 50, 0.1, 0.1, 0 ,c_white, 1);
+}
+
+
 
 depth = 0;
 

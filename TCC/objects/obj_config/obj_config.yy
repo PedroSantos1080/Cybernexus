@@ -32,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_config",
-    "path": "sprites/spr_config/spr_config.yy",
+    "name": "spr_configurar",
+    "path": "sprites/spr_configurar/spr_configurar.yy",
   },
   "spriteMaskId": null,
   "visible": true,

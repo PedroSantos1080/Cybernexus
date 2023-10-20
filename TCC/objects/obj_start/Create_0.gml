@@ -1,5 +1,6 @@
 audio_group_load(audiogroup_default);
 
+
 global.tempo = 0;
 global.controle1 = 4;
 global.controle2 = 5;

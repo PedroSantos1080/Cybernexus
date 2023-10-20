@@ -1,5 +1,7 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
+
+
 var _largura = display_get_gui_width();
 var _altura = display_get_gui_height();
 draw_set_font(f_dano);

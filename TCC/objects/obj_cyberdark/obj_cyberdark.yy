@@ -7,7 +7,6 @@
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":2,"eventType":2,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","eventNum":0,"eventType":4,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":{"name":"obj_red","path":"objects/obj_red/obj_red.yy",},"eventNum":0,"eventType":4,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":{"name":"obj_blue","path":"objects/obj_blue/obj_blue.yy",},"eventNum":0,"eventType":4,"isDnD":false,},
   ],
@@ -37,8 +36,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_cyberdark_direita_fechada",
-    "path": "sprites/spr_cyberdark_direita_fechada/spr_cyberdark_direita_fechada.yy",
+    "name": "spr_cyberdark_surgindo",
+    "path": "sprites/spr_cyberdark_surgindo/spr_cyberdark_surgindo.yy",
   },
   "spriteMaskId": null,
   "visible": true,

@@ -3,8 +3,6 @@
 if (global.pause){ 
 	exit;
 }else {
-	image_speed = 1;
-}
 
 //Spawna o inimigo com base em qual tipo de inimigo ele é
 //Comando executado a cada 10seg
@@ -27,3 +25,5 @@ instance_create_layer(1004,107, "Mobs", tipo_inimigo);
 instance_create_layer(1004, 48, "Mobs", tipo_inimigo);
 
 alarm[0] = 10;
+
+}

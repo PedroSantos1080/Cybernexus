@@ -7,10 +7,8 @@ randomize();
 _obj = [obj_red, obj_blue];
 sorteio = irandom_range(0,1);
 
-
 vida = 2;
 dano = 2;
-
 
 vida_anterior = vida;
 tomou_dano = false;
